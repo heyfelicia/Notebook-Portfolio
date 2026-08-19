@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaii Open Notebook Sandbox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+   <main id="portfolio">
+        <div class="notebook-wrapper">
+            
+            <div class="notebook-bottom"></div>
+
+            <img src="images/duck.svg" alt="Kawaii Duck Sticker" class="duck-sticker">
+           
+            <nav class="notebook-nav">
+                <ul>
+                    <li><a href="#" class="tab-welcome">Start Here</a></li>
+                    <li><a href="#" class="tab-lessons">Code Hub</a></li>
+                    <li><a href="#" class="tab-assignments">Goodies</a></li>
+                </ul>
+            </nav>
+
+            <div class="notebook">
+                
+                <div class="notebook-spine"></div>
+
+                <div class="notebook-page left-page">
+                    <div class="page-header">Live Preview</div>
+                    <iframe id="outputFrame" class="live-screen"></iframe>
+                </div>
+
+                <div class="notebook-page right-page">
+                    <div class="page-header">Code Editor</div>
+                    <textarea id="codeBox" placeholder="Type your HTML & CSS here..."></textarea>
+                </div>
+
+            </div>
+        </div>
+   </main>
+
+   <script>
+        const codeBox = document.getElementById('codeBox');
+        const outputFrame = document.getElementById('outputFrame');
+
+        codeBox.value = `<div style="text-align: center; padding-top: 60px; font-family: 'Nunito', sans-serif;">\n  <h2 style="color: #ff8c66;">Hello Students ✿</h2>\n  <p>Type code on the right page to see it live here!</p>\n</div>`;
+
+        function updatePreview() {
+            const userCode = codeBox.value;
+            const frameDoc = outputFrame.contentDocument || outputFrame.contentWindow.document;
+            frameDoc.open();
+            frameDoc.write(userCode);
+            frameDoc.close();
+        }
+
+        updatePreview();
+        codeBox.addEventListener('input', updatePreview);
+   </script>
+</body>
+
+</html>

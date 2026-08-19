@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  color: #59422d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fffdf9;
+  background-image: radial-gradient(#ffc3d0 1px, transparent 1.5px);
+  background-size: 20px 20px; 
+}
+
+#portfolio {
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+
+.notebook-wrapper {
+  position: relative;
+  width: 1000px;
+  height: 560px;
+  flex-shrink: 0;
+  margin-right: 40px; 
+}
+
+
+.notebook-bottom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 560px;
+  width: 1000px;
+  background-color: #e8d7f1; 
+  border: 20px solid #e8d7f1;
+  border-radius: 25px;
+  z-index: 1; 
+}
+
+
+.notebook {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1000px;
+  height: 560px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+  box-sizing: border-box;
+  z-index: 2; 
+}
+
+
+.notebook-spine {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+  width: 2px;
+  background-color: #d1b3e0; 
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+
+.notebook-page {
+  width: 46%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.page-header {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #7bcbd4; 
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+.live-screen {
+  flex: 1;
+  width: 100%;
+  border: 2px dashed #e8d7f1;
+  background: #fffdf9;
+  border-radius: 12px;
+}
+
+
+textarea#codeBox {
+  flex: 1;
+  background: #fffdf9;
+  border: 2px dashed #f4c430;
+  border-radius: 12px;
+  padding: 15px;
+  font-family: monospace;
+  font-size: 13px;
+  resize: none;
+  outline: none;
+  color: #59422d;
+  box-sizing: border-box;
+}
+
+
+.notebook-nav { 
+  position: absolute;
+  top: 60px;
+  right: -28px; 
+  flex-direction: column;
+  z-index: 2;
+}
+
+.notebook-nav ul {
+  list-style-type: none;
+  padding: 0; 
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notebook-nav li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 80px;
+  border-radius: 0px 12px 12px 0px;
+  text-decoration: none;
+  font-weight: 700;
+  color: transparent; 
+  transition: transform 0.2s ease;
+}
+
+.notebook-nav li a:hover {
+  transform: translateX(5px);
+}
+
+.tab-welcome {
+  background-color: #ffdb71; 
+    filter: saturate(1.5);
+}
+
+.tab-lessons {
+  background-color: #ffb7c5; 
+}
+
+.tab-assignments {
+  background-color: #b5ead7;
+}
+
+
+
+.duck-sticker {
+  position: absolute;
+  bottom: -20px;
+  left: -25px;
+  width: 90px;
+  height: 90px;
+  z-index: 10;
+  transform: rotate(180deg);
+  pointer-events: none;
+  filter: saturate(1.5);
+}
