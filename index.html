@@ -8,18 +8,26 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;700&family=Comic+Neue:wght@700&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
 
-   <main id="portfolio">
+    <main id="portfolio">
         <div class="notebook-wrapper">
-            
+
             <div class="notebook-bottom"></div>
 
-            <img src="images/duck.svg" alt="Kawaii Duck Sticker" class="duck-sticker">
-           
+            <div id="duckContainer" class="duck-container" onclick="duckSaysStuff(event)">
+                <img src="images/duck.svg" alt="Kawaii Duck Sticker" class="duck-sticker">
+                <div id="duckSpeechBubble" class="duck-speech" style="display: none;">
+                    <span id="duckText">Hi! Click me for web tips! 🐥</span>
+                </div>
+            </div>
+
             <nav class="notebook-nav">
                 <ul>
                     <li><a href="#" class="tab-welcome">Start Here</a></li>
@@ -29,40 +37,327 @@
             </nav>
 
             <div class="notebook">
-                
+
                 <div class="notebook-spine"></div>
 
+                <!-- LEFT PAGE: LIVE PREVIEW -->
                 <div class="notebook-page left-page">
                     <div class="page-header">Live Preview</div>
                     <iframe id="outputFrame" class="live-screen"></iframe>
                 </div>
 
+                <!-- RIGHT PAGE: CODE EDITOR -->
                 <div class="notebook-page right-page">
-                    <div class="page-header">Code Editor</div>
+                    <div class="editor-header-row">
+                        <div class="page-header" style="margin-bottom: 0;">Code Editor</div>
+                        <div class="tools-right">
+                            <button id="fontBtn" class="tool-btn">Fonts</button>
+                            <button id="assetBtn" class="tool-btn">Stickers</button>
+
+                            <!-- Custom Color Picker Trigger -->
+                            <div class="color-picker-tool">
+                                <button id="colorBtn" class="tool-btn color-trigger-btn">
+                                    <span id="colorPreviewCircle" class="color-preview-circle"
+                                        style="background-color: #ffb7c5;"></span>
+                                    <span id="hexDisplay">#ffb7c5</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FONT LIBRARY DRAWER -->
+                    <div id="fontDrawer" class="popup-drawer" style="display: none;">
+                        <div class="drawer-header">
+                            <span>Font Styles (Click to Copy CSS!)</span>
+                            <button class="close-drawer" onclick="closeDrawers()">✕</button>
+                        </div>
+                        <div class="font-list">
+                            <div class="font-item" data-code="font-family: 'Nunito', sans-serif;">
+                                <span class="font-preview-text" style="font-family: 'Nunito', sans-serif;">Nunito (Soft
+                                    & Cozy)</span>
+                                <span class="font-code">font-family: 'Nunito'</span>
+                            </div>
+                            <div class="font-item" data-code="font-family: 'Quicksand', sans-serif;">
+                                <span class="font-preview-text" style="font-family: 'Quicksand', sans-serif;">Quicksand
+                                    (Clean & Round)</span>
+                                <span class="font-code">font-family: 'Quicksand'</span>
+                            </div>
+                            <div class="font-item" data-code="font-family: 'Comic Neue', cursive;">
+                                <span class="font-preview-text" style="font-family: 'Comic Neue', cursive;">Comic Neue
+                                    (Playful)</span>
+                                <span class="font-code">font-family: 'Comic Neue'</span>
+                            </div>
+                            <div class="font-item" data-code="font-family: monospace;">
+                                <span class="font-preview-text" style="font-family: monospace;">Monospace (Coding
+                                    Vibe)</span>
+                                <span class="font-code">font-family: monospace</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STICKER ASSET DRAWER -->
+                    <div id="assetDrawer" class="popup-drawer" style="display: none;">
+                        <div class="drawer-header">
+                            <span>Sticker Library (Click to Copy Link!)</span>
+                            <button class="close-drawer" onclick="closeDrawers()">✕</button>
+                        </div>
+                        <div class="asset-grid">
+                            <div class="asset-item"
+                                data-url="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png">
+                                <img src="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png"
+                                    alt="Strawberry">
+                                <span class="copy-hint">Copy URL</span>
+                            </div>
+
+                            <div class="asset-item"
+                                data-url="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png">
+                                <img src="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png"
+                                    alt="Strawberry">
+                                <span class="copy-hint">Copy URL</span>
+                            </div>
+
+                            <div class="asset-item"
+                                data-url="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png">
+                                <img src="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png"
+                                    alt="Strawberry">
+                                <span class="copy-hint">Copy URL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLOR PICKER DRAWER (CUSTOM SWATCHES ONLY) -->
+                    <div id="colorDrawer" class="popup-drawer" style="display: none;">
+                        <div class="drawer-header">
+                            <span>Pick a Palette Color</span>
+                            <button class="close-drawer" onclick="closeDrawers()">✕</button>
+                        </div>
+                        <div class="swatch-grid" style="grid-template-columns: repeat(5, 1fr);">
+    <!-- Row 1 -->
+    <div class="color-swatch" style="background-color: #FFACC2;" data-color="#FFACC2" title="#FFACC2"></div>
+    <div class="color-swatch" style="background-color: #FAD0DA;" data-color="#FAD0DA" title="#FAD0DA"></div>
+    <div class="color-swatch" style="background-color: #9EDFEA;" data-color="#9EDFEA" title="#9EDFEA"></div>
+    <div class="color-swatch" style="background-color: #90E3DE;" data-color="#90E3DE" title="#90E3DE"></div>
+    <div class="color-swatch" style="background-color: #CDF0F2;" data-color="#CDF0F2" title="#CDF0F2"></div>
+
+    <!-- Row 2 -->
+    <div class="color-swatch" style="background-color: #FF9D93;" data-color="#FF9D93" title="#FF9D93"></div>
+    <div class="color-swatch" style="background-color: #FFB5A6;" data-color="#FFB5A6" title="#FFB5A6"></div>
+    <div class="color-swatch" style="background-color: #FFD3D4;" data-color="#FFD3D4" title="#FFD3D4"></div>
+    <div class="color-swatch" style="background-color: #FFE9E9;" data-color="#FFE9E9" title="#FFE9E9"></div>
+    <div class="color-swatch" style="background-color: #C1DCD9;" data-color="#C1DCD9" title="#C1DCD9"></div>
+
+    <!-- Row 3 -->
+    <div class="color-swatch" style="background-color: #BDECE9;" data-color="#BDECE9" title="#BDECE9"></div>
+    <div class="color-swatch" style="background-color: #CBDFF3;" data-color="#CBDFF3" title="#CBDFF3"></div>
+    <div class="color-swatch" style="background-color: #ACC7E9;" data-color="#ACC7E9" title="#ACC7E9"></div>
+    <div class="color-swatch" style="background-color: #86ADDC;" data-color="#86ADDC" title="#86ADDC"></div>
+    <div class="color-swatch" style="background-color: #FEDBCF;" data-color="#FEDBCF" title="#FEDBCF"></div>
+
+    <!-- Row 4 -->
+    <div class="color-swatch" style="background-color: #FFC6BF;" data-color="#FFC6BF" title="#FFC6BF"></div>
+    <div class="color-swatch" style="background-color: #CBEFE0;" data-color="#CBEFE0" title="#CBEFE0"></div>
+    <div class="color-swatch" style="background-color: #B0E4C8;" data-color="#B0E4C8" title="#B0E4C8"></div>
+    <div class="color-swatch" style="background-color: #A6DBC7;" data-color="#A6DBC7" title="#A6DBC7"></div>
+    <div class="color-swatch" style="background-color: #8AC3A6;" data-color="#8AC3A6" title="#8AC3A6"></div>
+
+    <!-- Row 5 -->
+    <div class="color-swatch" style="background-color: #96DBF2;" data-color="#96DBF2" title="#96DBF2"></div>
+    <div class="color-swatch" style="background-color: #BDE8F8;" data-color="#BDE8F8" title="#BDE8F8"></div>
+    <div class="color-swatch" style="background-color: #FFBD81;" data-color="#FFBD81" title="#FFBD81"></div>
+    <div class="color-swatch" style="background-color: #FFC59D;" data-color="#FFC59D" title="#FFC59D"></div>
+    <div class="color-swatch" style="background-color: #FFCBB3;" data-color="#FFCBB3" title="#FFCBB3"></div>
+
+    <!-- Row 6 -->
+    <div class="color-swatch" style="background-color: #F0BDFE;" data-color="#F0BDFE" title="#F0BDFE"></div>
+    <div class="color-swatch" style="background-color: #ECD7F5;" data-color="#ECD7F5" title="#ECD7F5"></div>
+    <div class="color-swatch" style="background-color: #FADAD4;" data-color="#FADAD4" title="#FADAD4"></div>
+    <div class="color-swatch" style="background-color: #EFBCB3;" data-color="#EFBCB3" title="#EFBCB3"></div>
+    <div class="color-swatch" style="background-color: #DCEBF2;" data-color="#DCEBF2" title="#DCEBF2"></div>
+</div>
+                    </div>
+
                     <textarea id="codeBox" placeholder="Type your HTML & CSS here..."></textarea>
                 </div>
 
             </div>
         </div>
-   </main>
+    </main>
 
-   <script>
+
+    <script>
         const codeBox = document.getElementById('codeBox');
         const outputFrame = document.getElementById('outputFrame');
 
-        codeBox.value = `<div style="text-align: center; padding: 100px; font-family: 'Nunito', sans-serif;">\n<h2 style="color: #ff8c66;">Hello Students ✿</h2>\n<p>Type code on the right page to see it live here!</p>\n<img src="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png" style="display: block; width: 100px; height: auto; margin: 0 auto;">\n</div>`;
+        const assetBtn = document.getElementById('assetBtn');
+        const assetDrawer = document.getElementById('assetDrawer');
+
+        const fontBtn = document.getElementById('fontBtn');
+        const fontDrawer = document.getElementById('fontDrawer');
+
+        const colorBtn = document.getElementById('colorBtn');
+        const colorDrawer = document.getElementById('colorDrawer');
+        const colorPreviewCircle = document.getElementById('colorPreviewCircle');
+        const hexDisplay = document.getElementById('hexDisplay');
+
+        codeBox.value = `<div style="text-align: center; padding: 60px; font-family: 'Nunito', sans-serif;">
+
+  <h2 style="color:#FFB5A6;">Hello Students!</h2>
+
+  <p style="color: #59422d; font-size: 16px;">
+    Type your code on the right page to see it live here!
+  </p>
+
+  <img src="#" style="display:block; margin:0 auto; width:100px; height:auto;">
+
+</div>`;
 
         function updatePreview() {
             const userCode = codeBox.value;
-            const frameDoc = outputFrame.contentDocument || outputFrame.contentWindow.document;
+            const frameDoc =
+                outputFrame.contentDocument ||
+                outputFrame.contentWindow.document;
+
             frameDoc.open();
             frameDoc.write(userCode);
             frameDoc.close();
         }
 
+        function closeDrawers() {
+            assetDrawer.style.display = 'none';
+            fontDrawer.style.display = 'none';
+            colorDrawer.style.display = 'none';
+        }
+
+        // Toggle Sticker Drawer
+        assetBtn.addEventListener('click', () => {
+            const isOpen = assetDrawer.style.display === 'block';
+            closeDrawers();
+            assetDrawer.style.display = isOpen ? 'none' : 'block';
+        });
+
+        // Toggle Font Drawer
+        fontBtn.addEventListener('click', () => {
+            const isOpen = fontDrawer.style.display === 'block';
+            closeDrawers();
+            fontDrawer.style.display = isOpen ? 'none' : 'block';
+        });
+
+        // Toggle Color Drawer
+        colorBtn.addEventListener('click', () => {
+            const isOpen = colorDrawer.style.display === 'block';
+            closeDrawers();
+            colorDrawer.style.display = isOpen ? 'none' : 'block';
+        });
+
+        // Apply color, update preview display, and copy to clipboard
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const selectedColor = swatch.getAttribute('data-color');
+
+                // Update UI preview elements
+                hexDisplay.textContent = selectedColor;
+                colorPreviewCircle.style.backgroundColor = selectedColor;
+
+                // Copy hex code to clipboard
+                navigator.clipboard.writeText(selectedColor);
+
+                // Temporary feedback animation/text
+                const originalText = hexDisplay.textContent;
+                hexDisplay.textContent = "Copied! ✨";
+                setTimeout(() => {
+                    hexDisplay.textContent = originalText;
+                }, 1200);
+
+                closeDrawers();
+            });
+        });
+
+        // Copy Hex Color via badge click
+        hexDisplay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigator.clipboard.writeText(hexDisplay.textContent);
+
+            const original = hexDisplay.textContent;
+            hexDisplay.textContent = "Copied! ✨";
+
+            setTimeout(() => {
+                hexDisplay.textContent = original;
+            }, 1200);
+        });
+
+        // Copy Sticker URL
+        document.querySelectorAll('.asset-item').forEach(item => {
+            item.addEventListener('click', () => {
+                navigator.clipboard.writeText(
+                    item.getAttribute('data-url')
+                );
+
+                const hint = item.querySelector('.copy-hint');
+                hint.textContent = 'Copied! 🍓';
+
+                setTimeout(() => {
+                    hint.textContent = 'Copy URL';
+                }, 1500);
+            });
+        });
+
+        // Copy Font Code
+        document.querySelectorAll('.font-item').forEach(item => {
+            item.addEventListener('click', () => {
+                navigator.clipboard.writeText(
+                    item.getAttribute('data-code')
+                );
+
+                const codeSpan = item.querySelector('.font-code');
+                const original = codeSpan.textContent;
+
+                codeSpan.textContent = 'Copied! ✨';
+
+                setTimeout(() => {
+                    codeSpan.textContent = original;
+                }, 1500);
+            });
+        });
+
+        // Start Live Preview
         updatePreview();
+
+        // Update Preview While Typing
         codeBox.addEventListener('input', updatePreview);
-   </script>
+
+        /* DUCK WEB DEVELOPMENT TIPS */
+        const duckTips = [
+            "HTML is like the skeleton of your webpage! It adds the text, images, and structure. 🦴✨",
+            "CSS is the outfit! It handles colors, cute fonts, spacing, and styling. 👗💖",
+            "Tags in HTML always come in pairs with brackets, like <h1> and </h1>! 🌱",
+            "Want to change text color? Use 'color: #ff8c66;' inside your style attribute! 🎨",
+            "Stuck on a bug? Check if you forgot a semicolon (;) or a closing quote! 🐛🔍",
+            "The <img> tag doesn't need a closing tag—just give it a src='...' attribute! 🖼️"
+        ];
+
+        let tipIndex = 0;
+        const duckContainer = document.getElementById('duckContainer');
+        const duckSticker = document.querySelector('.duck-sticker');
+        const speechBubble = document.getElementById('duckSpeechBubble');
+        const duckText = document.getElementById('duckText');
+
+        function duckSaysStuff(event) {
+            event.stopPropagation();
+            speechBubble.style.display = 'block';
+            duckText.textContent = duckTips[tipIndex];
+            tipIndex = (tipIndex + 1) % duckTips.length;
+        }
+
+        document.addEventListener('click', (event) => {
+            if (!duckSticker.contains(event.target)) {
+                speechBubble.style.display = 'none';
+            }
+        });
+
+
+    </script>
+
+
 </body>
 
 </html>
