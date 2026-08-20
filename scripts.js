@@ -16,6 +16,8 @@ const defaultCode = `<div style="text-align: center; padding: 40px; font-family:
     <p style="color:  #574840; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
         Thank you so much for joining today.<br>
         Start typing your code on the right to see the magic happen right here. </p>
+
+       
    
 </div>`;
 
