@@ -71,28 +71,78 @@
                             <span>Font Styles (Click to Copy CSS!)</span>
                             <button class="close-drawer" onclick="closeDrawers()">✕</button>
                         </div>
-                        <div class="font-list">
-                            <div class="font-item" data-code="font-family: 'Nunito', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'Nunito', sans-serif;">Nunito (Soft
-                                    & Cozy)</span>
-                                <span class="font-code">font-family: 'Nunito'</span>
-                            </div>
-                            <div class="font-item" data-code="font-family: 'Quicksand', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'Quicksand', sans-serif;">Quicksand
-                                    (Clean & Round)</span>
-                                <span class="font-code">font-family: 'Quicksand'</span>
-                            </div>
-                            <div class="font-item" data-code="font-family: 'Comic Neue', cursive;">
-                                <span class="font-preview-text" style="font-family: 'Comic Neue', cursive;">Comic Neue
-                                    (Playful)</span>
-                                <span class="font-code">font-family: 'Comic Neue'</span>
-                            </div>
-                            <div class="font-item" data-code="font-family: monospace;">
-                                <span class="font-preview-text" style="font-family: monospace;">Monospace (Coding
-                                    Vibe)</span>
-                                <span class="font-code">font-family: monospace</span>
-                            </div>
-                        </div>
+
+
+                      <div class="font-list">
+
+    <div class="font-item" data-code="font-family: 'Nunito', sans-serif;">
+        <span class="font-preview-text" style="font-family: 'Nunito', sans-serif;">
+            Nunito (Soft & Cozy)
+        </span>
+        <span class="font-code">font-family: 'Nunito'</span>
+    </div>
+
+    <div class="font-item" data-code="font-family: 'Quicksand', sans-serif;">
+        <span class="font-preview-text" style="font-family: 'Quicksand', sans-serif;">
+            Quicksand (Clean & Round)
+        </span>
+        <span class="font-code">font-family: 'Quicksand'</span>
+    </div>
+
+    <div class="font-item" data-code="font-family: 'Fredoka', sans-serif;">
+        <span class="font-preview-text" style="font-family: 'Fredoka', sans-serif;">
+            Fredoka (Bubbly & Cute)
+        </span>
+        <span class="font-code">font-family: 'Fredoka'</span>
+    </div>
+
+    <div class="font-item" data-code="font-family: 'Baloo 2', sans-serif;">
+        <span class="font-preview-text" style="font-family: 'Baloo 2', sans-serif;">
+            Baloo 2 (Chunky & Happy)
+        </span>
+        <span class="font-code">font-family: 'Baloo 2'</span>
+    </div>
+
+    <div class="font-item" data-code="font-family: 'DynaPuff', sans-serif;">
+        <span class="font-preview-text" style="font-family: 'DynaPuff', sans-serif;">
+            DynaPuff (Puffy & Playful)
+        </span>
+        <span class="font-code">font-family: 'DynaPuff'</span>
+    </div>
+
+    <div class="font-item" data-code="font-family: 'Coiny', sans-serif;">
+        <span class="font-preview-text" style="font-family: 'Coiny', sans-serif;">
+            Coiny (Bold & Bouncy)
+        </span>
+        <span class="font-code">font-family: 'Coiny'</span>
+    </div>
+
+    <div class="font-item" data-code="font-family: 'M PLUS Rounded 1c', sans-serif;">
+        <span class="font-preview-text" style="font-family: 'M PLUS Rounded 1c', sans-serif;">
+            M PLUS Rounded (Sweet & Kawaii)
+        </span>
+        <span class="font-code">font-family: 'M PLUS Rounded 1c'</span>
+    </div>
+
+    <div class="font-item" data-code="font-family: 'Varela Round', sans-serif;">
+        <span class="font-preview-text" style="font-family: 'Varela Round', sans-serif;">
+            Varela Round (Simple & Sweet)
+        </span>
+        <span class="font-code">font-family: 'Varela Round'</span>
+    </div>
+
+    <div class="font-item" data-code="font-family: monospace;">
+        <span class="font-preview-text" style="font-family: monospace;">
+            Monospace (Coding Vibe)
+        </span>
+        <span class="font-code">font-family: monospace</span>
+    </div>
+
+</div>
+
+
+
+                        
                     </div>
 
                     <!-- STICKER ASSET DRAWER -->
@@ -212,15 +262,22 @@
 </div>`;
 
         function updatePreview() {
-            const userCode = codeBox.value;
-            const frameDoc =
-                outputFrame.contentDocument ||
-                outputFrame.contentWindow.document;
+    const userCode = codeBox.value;
 
-            frameDoc.open();
-            frameDoc.write(userCode);
-            frameDoc.close();
-        }
+    const frameDoc =
+        outputFrame.contentDocument ||
+        outputFrame.contentWindow.document;
+
+    frameDoc.open();
+
+    frameDoc.write(`
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;700&family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@400;500;600;700&family=DynaPuff:wght@400;500;600;700&family=Coiny&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+        ${userCode}
+    `);
+
+    frameDoc.close();
+}
 
         function closeDrawers() {
             assetDrawer.style.display = 'none';
@@ -228,40 +285,40 @@
             colorDrawer.style.display = 'none';
         }
 
-        // Toggle Sticker Drawer
+
         assetBtn.addEventListener('click', () => {
             const isOpen = assetDrawer.style.display === 'block';
             closeDrawers();
             assetDrawer.style.display = isOpen ? 'none' : 'block';
         });
 
-        // Toggle Font Drawer
+
         fontBtn.addEventListener('click', () => {
             const isOpen = fontDrawer.style.display === 'block';
             closeDrawers();
             fontDrawer.style.display = isOpen ? 'none' : 'block';
         });
 
-        // Toggle Color Drawer
+
         colorBtn.addEventListener('click', () => {
             const isOpen = colorDrawer.style.display === 'block';
             closeDrawers();
             colorDrawer.style.display = isOpen ? 'none' : 'block';
         });
 
-        // Apply color, update preview display, and copy to clipboard
+        
         document.querySelectorAll('.color-swatch').forEach(swatch => {
             swatch.addEventListener('click', () => {
                 const selectedColor = swatch.getAttribute('data-color');
 
-                // Update UI preview elements
+  
                 hexDisplay.textContent = selectedColor;
                 colorPreviewCircle.style.backgroundColor = selectedColor;
 
-                // Copy hex code to clipboard
+ 
                 navigator.clipboard.writeText(selectedColor);
 
-                // Temporary feedback animation/text
+        
                 const originalText = hexDisplay.textContent;
                 hexDisplay.textContent = "Copied! ✨";
                 setTimeout(() => {
@@ -272,7 +329,7 @@
             });
         });
 
-        // Copy Hex Color via badge click
+
         hexDisplay.addEventListener('click', (e) => {
             e.stopPropagation();
             navigator.clipboard.writeText(hexDisplay.textContent);
@@ -285,7 +342,7 @@
             }, 1200);
         });
 
-        // Copy Sticker URL
+
         document.querySelectorAll('.asset-item').forEach(item => {
             item.addEventListener('click', () => {
                 navigator.clipboard.writeText(
@@ -301,7 +358,6 @@
             });
         });
 
-        // Copy Font Code
         document.querySelectorAll('.font-item').forEach(item => {
             item.addEventListener('click', () => {
                 navigator.clipboard.writeText(
@@ -319,13 +375,13 @@
             });
         });
 
-        // Start Live Preview
+
         updatePreview();
 
-        // Update Preview While Typing
+
         codeBox.addEventListener('input', updatePreview);
 
-        /* DUCK WEB DEVELOPMENT TIPS */
+
         const duckTips = [
             "HTML is like the skeleton of your webpage! It adds the text, images, and structure. 🦴✨",
             "CSS is the outfit! It handles colors, cute fonts, spacing, and styling. 👗💖",
