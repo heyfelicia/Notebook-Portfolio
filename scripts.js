@@ -74,9 +74,15 @@ colorBtn.addEventListener('click', () => {
 document.querySelectorAll('.color-swatch').forEach(swatch => {
     swatch.addEventListener('click', () => {
         const selectedColor = swatch.getAttribute('data-color');
-        colorPreviewCircle.style.backgroundColor = selectedColor;
         navigator.clipboard.writeText(selectedColor);
-        closeDrawers();
+        
+        // Update the toolbar button text and circle to show the hex code and copied state
+        colorBtn.innerHTML = `<span id="colorPreviewCircle" class="color-preview-circle" style="background-color: ${selectedColor};"></span> Copied! ✨`;
+        
+        setTimeout(() => {
+            colorBtn.innerHTML = `<span id="colorPreviewCircle" class="color-preview-circle" style="background-color: ${selectedColor};"></span> <span id="colorCodeText">${selectedColor}</span>`;
+            closeDrawers();
+        }, 1200);
     });
 });
 
