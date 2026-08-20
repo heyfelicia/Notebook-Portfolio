@@ -457,7 +457,7 @@ textarea#codeBox {
     display: block;
     font-size: 8px;
     font-weight: 300;
-    color: #b3a2be;
+    color: #5c5562;
     margin-top: 2px;
 }
 
@@ -494,8 +494,8 @@ textarea#codeBox {
     font-family: monospace;
     font-size: 10px;
     font-weight: 300;
-    color: #b3a2be;
-    background: rgba(0,0,0,0.02);
+    color: #5c5562;
+    background: rgb(255, 255, 255);
     padding: 2px 6px;
     border-radius: 4px;
 }
