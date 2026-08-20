@@ -46,19 +46,26 @@
                 </div>
 
                 <!-- RIGHT PAGE: CODE EDITOR -->
-                <div class="notebook-page right-page">
+                <div class="notebook-page right-page" style="display: flex; flex-direction: column;">
                     <div class="editor-header-row">
-                        <div class="page-header" style="margin-bottom: 0;">  &lt;/&gt; Code Editor</div>
-                        <div class="tools-right">
-                            <button id="fontBtn" class="tool-btn">Fonts</button>
-                            <button id="assetBtn" class="tool-btn">Stickers</button>
+                        <div class="page-header" style="margin-bottom: 0;"> &lt;/&gt; Code Editor</div>
+                        <div class="tools-right" style="display: flex; gap: 6px; align-items: center;">
+                            <!-- Fonts Icon Button -->
+                            <button id="fontBtn" class="tool-btn" title="Fonts"
+                                style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #ebdbe9; background: #fff; cursor: pointer; font-weight: 700; font-size: 13px; color: #8c7b9e; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">Aa</button>
+                            
+                            <!-- Stickers Icon Button -->
+                            <button id="assetBtn" class="tool-btn" title="Stickers & Assets"
+                                style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #ebdbe9; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <img src="images/star.svg" style="width: 15px; height: auto;">
+                            </button>
 
                             <!-- Custom Color Picker Trigger -->
                             <div class="color-picker-tool">
-                                <button id="colorBtn" class="tool-btn color-trigger-btn">
+                                <button id="colorBtn" class="tool-btn color-trigger-btn" title="Colors"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #ebdbe9; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0;">
                                     <span id="colorPreviewCircle" class="color-preview-circle"
-                                        style="background-color: #ffb7c5;"></span>
-                                    <span id="hexDisplay">#ffb7c5</span>
+                                        style="background-color: #ffb7c5; width: 14px; height: 14px; min-width: 14px; min-height: 14px; border-radius: 50%; display: inline-block;"></span>
                                 </button>
                             </div>
                         </div>
@@ -110,101 +117,97 @@
                         </div>
                     </div>
 
-                    <!-- STICKER ASSET DRAWER -->
+                    <!-- STICKER DRAWER -->
                     <div id="assetDrawer" class="popup-drawer" style="display: none;">
                         <div class="drawer-header">
                             <span>Sticker Library (Click to Copy Link!)</span>
                             <button class="close-drawer" onclick="closeDrawers()">✕</button>
                         </div>
-                      <div class="asset-grid">
-    <div class="asset-item" data-url="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png">
-        <img src="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png" alt="Strawberry">
-        <span class="copy-hint">Copy URL</span>
-    </div>
-    
-    <div class="asset-item" data-url="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWE3OWFubTcyanpvZTh0dWl2YWZkdW5pbG53b3QwaXhsMDFvd2RxYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QbQeDAEspJ5oCeGWJk/giphy.gif">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWE3OWFubTcyanpvZTh0dWl2YWZkdW5pbG53b3QwaXhsMDFvd2RxYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QbQeDAEspJ5oCeGWJk/giphy.gif" alt="Bunny">
-        <span class="copy-hint">Copy URL</span>
-    </div>
+                        <div class="asset-grid">
+                            <div class="asset-item"
+                                data-url="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png">
+                                <img src="https://images.vexels.com/media/users/3/230812/isolated/lists/80c9c2b32421700a201f16aa09320ff7-happy-strawberry-cartoon.png"
+                                    alt="Strawberry">
+                                <span class="copy-hint">Copy URL</span>
+                            </div>
+                            <div class="asset-item"
+                                data-url="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWE3OWFubTcyanpvZTh0dWl2YWZkdW5pbG53b3QwaXhsMDFvd2RxYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QbQeDAEspJ5oCeGWJk/giphy.gif">
+                                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWE3OWFubTcyanpvZTh0dWl2YWZkdW5pbG53b3QwaXhsMDFvd2RxYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QbQeDAEspJ5oCeGWJk/giphy.gif"
+                                    alt="Bunny">
+                                <span class="copy-hint">Copy URL</span>
+                            </div>
+                            <div class="asset-item"
+                                data-url="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NTkyejNhN2RxOGl5NTloaXA2d2hoZXIweGxva3l4aWt5NmpmMnZ3biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13AcmSNW5O7WV2/giphy.gif">
+                                <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NTkyejNhN2RxOGl5NTloaXA2d2hoZXIweGxva3l4aWt5NmpmMnZ3biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13AcmSNW5O7WV2/giphy.gif"
+                                    alt="Strawberry GIF">
+                                <span class="copy-hint">Copy URL</span>
+                            </div>
 
-    <div class="asset-item" data-url="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NTkyejNhN2RxOGl5NTloaXA2d2hoZXIweGxva3l4aWt5NmpmMnZ3biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13AcmSNW5O7WV2/giphy.gif">
-        <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NTkyejNhN2RxOGl5NTloaXA2d2hoZXIweGxva3l4aWt5NmpmMnZ3biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13AcmSNW5O7WV2/giphy.gif" alt="Strawberry GIF">
-        <span class="copy-hint">Copy URL</span>
-    </div>
-
-    <div class="asset-item" data-url="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHR3ZzQ1bDlvMjIwempudTFzdGJmcmU0MXQxbmZzNDZ3d2JubHJ6eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/10zDlPBs3OlAAw/giphy.gif">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHR3ZzQ1bDlvMjIwempudTFzdGJmcmU0MXQxbmZzNDZ3d2JubHJ6eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/10zDlPBs3OlAAw/giphy.gif" alt="Sailor Moon">
-        <span class="copy-hint">Copy URL</span>
-    </div>
-
-    <div class="asset-item" data-url="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NzduMzE1YmVudjVxbnNnc290OXkwbDQ1amJoZzFqamplcW81a2Z3eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ofUJBqWum5tLO/giphy.gif">
-        <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NzduMzE1YmVudjVxbnNnc290OXkwbDQ1amJoZzFqamplcW81a2Z3eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ofUJBqWum5tLO/giphy.gif" alt="Sparkle GIF">
-        <span class="copy-hint">Copy URL</span>
-    </div>
-
-    <div class="asset-item" data-url="https://images.vexels.com/media/users/3/283643/isolated/lists/a41adb61ea1361fa4fcf9a3c7d136f9b-cereals-kawaii.png">
-        <img src="https://images.vexels.com/media/users/3/283643/isolated/lists/a41adb61ea1361fa4fcf9a3c7d136f9b-cereals-kawaii.png" alt="Kawaii Cereal">
-        <span class="copy-hint">Copy URL</span>
-    </div>
-
-     <div class="asset-item" data-url="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTNiamphZmE1dWxkbTN1MGY5OWJmODlidTJrOHA2NmZyZTdibDYyNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/4zpsGjUaNlRrsCKV5L/giphy.gif">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTNiamphZmE1dWxkbTN1MGY5OWJmODlidTJrOHA2NmZyZTdibDYyNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/4zpsGjUaNlRrsCKV5L/giphy.gif" alt="Shugo Chara">
-        <span class="copy-hint">Copy URL</span>
-    </div>
-</div>
-
+                            <div class="asset-item"
+                                data-url="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YnR2Y3kxczJtb3RobnRwbzkzMG1sNjBwMTQzcDR2ZmU0djl4aTl6cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/lQmQkLm7EVgZy/giphy.gif">
+                                <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YnR2Y3kxczJtb3RobnRwbzkzMG1sNjBwMTQzcDR2ZmU0djl4aTl6cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/lQmQkLm7EVgZy/giphy.gif"
+                                    alt="Sailor Moon">
+                                <span class="copy-hint">Copy URL</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- COLOR PICKER DRAWER -->
+                    <!-- COLOR DRAWER -->
                     <div id="colorDrawer" class="popup-drawer" style="display: none;">
                         <div class="drawer-header">
-                            <span>Pick a Palette Color</span>
+                            <span>Pick a Palette Color (Click to Copy CSS!)</span>
                             <button class="close-drawer" onclick="closeDrawers()">✕</button>
                         </div>
-                        <div class="swatch-grid" style="grid-template-columns: repeat(5, 1fr);">
-                            <div class="color-swatch" style="background-color: #FFACC2;" data-color="#FFACC2" title="#FFACC2"></div>
-                            <div class="color-swatch" style="background-color: #FAD0DA;" data-color="#FAD0DA" title="#FAD0DA"></div>
-                            <div class="color-swatch" style="background-color: #9EDFEA;" data-color="#9EDFEA" title="#9EDFEA"></div>
-                            <div class="color-swatch" style="background-color: #90E3DE;" data-color="#90E3DE" title="#90E3DE"></div>
-                            <div class="color-swatch" style="background-color: #CDF0F2;" data-color="#CDF0F2" title="#CDF0F2"></div>
-                            <div class="color-swatch" style="background-color: #FF9D93;" data-color="#FF9D93" title="#FF9D93"></div>
-                            <div class="color-swatch" style="background-color: #FFB5A6;" data-color="#FFB5A6" title="#FFB5A6"></div>
-                            <div class="color-swatch" style="background-color: #FFD3D4;" data-color="#FFD3D4" title="#FFD3D4"></div>
-                            <div class="color-swatch" style="background-color: #FFE9E9;" data-color="#FFE9E9" title="#FFE9E9"></div>
-                            <div class="color-swatch" style="background-color: #C1DCD9;" data-color="#C1DCD9" title="#C1DCD9"></div>
-                            <div class="color-swatch" style="background-color: #BDECE9;" data-color="#BDECE9" title="#BDECE9"></div>
-                            <div class="color-swatch" style="background-color: #CBDFF3;" data-color="#CBDFF3" title="#CBDFF3"></div>
-                            <div class="color-swatch" style="background-color: #ACC7E9;" data-color="#ACC7E9" title="#ACC7E9"></div>
-                            <div class="color-swatch" style="background-color: #86ADDC;" data-color="#86ADDC" title="#86ADDC"></div>
-                            <div class="color-swatch" style="background-color: #FEDBCF;" data-color="#FEDBCF" title="#FEDBCF"></div>
-                            <div class="color-swatch" style="background-color: #FFC6BF;" data-color="#FFC6BF" title="#FFC6BF"></div>
-                            <div class="color-swatch" style="background-color: #CBEFE0;" data-color="#CBEFE0" title="#CBEFE0"></div>
-                            <div class="color-swatch" style="background-color: #B0E4C8;" data-color="#B0E4C8" title="#B0E4C8"></div>
-                            <div class="color-swatch" style="background-color: #A6DBC7;" data-color="#A6DBC7" title="#A6DBC7"></div>
-                            <div class="color-swatch" style="background-color: #8AC3A6;" data-color="#8AC3A6" title="#8AC3A6"></div>
-                            <div class="color-swatch" style="background-color: #96DBF2;" data-color="#96DBF2" title="#96DBF2"></div>
-                            <div class="color-swatch" style="background-color: #BDE8F8;" data-color="#BDE8F8" title="#BDE8F8"></div>
-                            <div class="color-swatch" style="background-color: #FFBD81;" data-color="#FFBD81" title="#FFBD81"></div>
-                            <div class="color-swatch" style="background-color: #FFC59D;" data-color="#FFC59D" title="#FFC59D"></div>
-                            <div class="color-swatch" style="background-color: #FFCBB3;" data-color="#FFCBB3" title="#FFCBB3"></div>
-                            <div class="color-swatch" style="background-color: #F0BDFE;" data-color="#F0BDFE" title="#F0BDFE"></div>
-                            <div class="color-swatch" style="background-color: #ECD7F5;" data-color="#ECD7F5" title="#ECD7F5"></div>
-                            <div class="color-swatch" style="background-color: #FADAD4;" data-color="#FADAD4" title="#FADAD4"></div>
-                            <div class="color-swatch" style="background-color: #EFBCB3;" data-color="#EFBCB3" title="#EFBCB3"></div>
-                            <div class="color-swatch" style="background-color: #59422d;" data-color="#59422d" title="#59422d"></div>
+                        <div class="swatch-grid" style="grid-template-columns: repeat(6, 1fr);">
+                            <div class="color-swatch" style="background-color: #FDF2F7;" data-color="#FDF2F7" title="#FDF2F7"></div>
+                            <div class="color-swatch" style="background-color: #F4ECF7;" data-color="#F4ECF7" title="#F4ECF7"></div>
+                            <div class="color-swatch" style="background-color: #ECEFFE;" data-color="#ECEFFE" title="#ECEFFE"></div>
+                            <div class="color-swatch" style="background-color: #E2F6FC;" data-color="#E2F6FC" title="#E2F6FC"></div>
+                            <div class="color-swatch" style="background-color: #D9FBF9;" data-color="#D9FBF9" title="#D9FBF9"></div>
+                            <div class="color-swatch" style="background-color: #E2FBD9;" data-color="#E2FBD9" title="#E2FBD9"></div>
+
+                            <div class="color-swatch" style="background-color: #FBE5EE;" data-color="#FBE5EE" title="#FBE5EE"></div>
+                            <div class="color-swatch" style="background-color: #E8D9F3;" data-color="#E8D9F3" title="#E8D9F3"></div>
+                            <div class="color-swatch" style="background-color: #D6DCFC;" data-color="#D6DCFC" title="#D6DCFC"></div>
+                            <div class="color-swatch" style="background-color: #B5EAFB;" data-color="#B5EAFB" title="#B5EAFB"></div>
+                            <div class="color-swatch" style="background-color: #AAF6F2;" data-color="#AAF6F2" title="#AAF6F2"></div>
+                            <div class="color-swatch" style="background-color: #C0F6B5;" data-color="#C0F6B5" title="#C0F6B5"></div>
+
+                            <div class="color-swatch" style="background-color: #FFCBE1;" data-color="#FFCBE1" title="#FFCBE1"></div>
+                            <div class="color-swatch" style="background-color: #D9BCEB;" data-color="#D9BCEB" title="#D9BCEB"></div>
+                            <div class="color-swatch" style="background-color: #B7C4F9;" data-color="#B7C4F9" title="#B7C4F9"></div>
+                            <div class="color-swatch" style="background-color: #8AD5F8;" data-color="#8AD5F8" title="#8AD5F8"></div>
+                            <div class="color-swatch" style="background-color: #7BEAE4;" data-color="#7BEAE4" title="#7BEAE4"></div>
+                            <div class="color-swatch" style="background-color: #92ED9B;" data-color="#92ED9B" title="#92ED9B"></div>
+
+                            <div class="color-swatch" style="background-color: #FFB3D5;" data-color="#FFB3D5" title="#FFB3D5"></div>
+                            <div class="color-swatch" style="background-color: #C7A2E3;" data-color="#C7A2E3" title="#C7A2E3"></div>
+                            <div class="color-swatch" style="background-color: #99AAF5;" data-color="#99AAF5" title="#99AAF5"></div>
+                            <div class="color-swatch" style="background-color: #63BEF4;" data-color="#63BEF4" title="#63BEF4"></div>
+                            <div class="color-swatch" style="background-color: #55DDD5;" data-color="#55DDD5" title="#55DDD5"></div>
+                            <div class="color-swatch" style="background-color: #68E475;" data-color="#68E475" title="#68E475"></div>
+
+                            <div class="color-swatch" style="background-color: #F8D1C7;" data-color="#F8D1C7" title="#F8D1C7"></div>
+                            <div class="color-swatch" style="background-color: #D69E8D;" data-color="#D69E8D" title="#D69E8D"></div>
+                            <div class="color-swatch" style="background-color: #CC6B56;" data-color="#CC6B56" title="#CC6B56"></div>
+                            <div class="color-swatch" style="background-color: #FFABA2;" data-color="#FFABA2" title="#FFABA2"></div>
+                            <div class="color-swatch" style="background-color: #FF94A5;" data-color="#FF94A5" title="#FF94A5"></div>
+                            <div class="color-swatch" style="background-color: #FF6185;" data-color="#FF6185" title="#FF6185"></div>
                         </div>
                     </div>
 
-                    <!-- EDITOR CONTAINER WITH LINE NUMBERS -->
-                    <div class="editor-container">
+                    <div class="editor-container" style="flex: 1; position: relative;">
                         <div id="lineNumbers" class="line-numbers">1</div>
                         <textarea id="codeBox" placeholder="Type your HTML & CSS here..."></textarea>
                         <div id="textMeasurementMirror" class="text-measurement-mirror"></div>
                     </div>
+
                 </div>
 
             </div>
+
         </div>
+
     </main>
 
     <script>
@@ -220,30 +223,23 @@
         const colorBtn = document.getElementById('colorBtn');
         const colorDrawer = document.getElementById('colorDrawer');
         const colorPreviewCircle = document.getElementById('colorPreviewCircle');
-        const hexDisplay = document.getElementById('hexDisplay');
 
-
- codeBox.value = `<div style="text-align: center; padding: 40px; font-family: 'Nunito', sans-serif;">
-
-    <h2 style="color:#FF9D93; margin-bottom: 10px; font-weight:400;">Welcome</h2>
-
-  <p style="color: #6b5246; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
-    Thank you so much for joining today.<br>
-    Start typing your code on the right to see the magic happen right here.
-  </p>
-
-  <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NTkyejNhN2RxOGl5NTloaXA2d2hoZXIweGxva3l4aWt5NmpmMnZ3biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13AcmSNW5O7WV2/giphy.gif" alt="Buny" style="display: block; margin: 0 auto; width: 120px; height: auto;">
-
+        const defaultCode = `<div style="text-align: center; padding: 40px; font-family: 'Nunito', sans-serif;">
+    <h2 style="color:#D9BCEB; margin-bottom: 10px; font-weight:400;">Welcome</h2>
+    <p style="color: #8c7b9e; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
+        Thank you so much for joining today.<br>
+        Start typing your code on the right to see the magic happen right here. </p>
+    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NTkyejNhN2RxOGl5NTloaXA2d2hoZXIweGxva3l4aWt5NmpmMnZ3biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13AcmSNW5O7WV2/giphy.gif" alt="Bunny" style="display: block; margin: 0 auto; width: 120px; height: auto;">
 </div>`;
+
+        codeBox.value = defaultCode;
 
         function updateLineNumbers() {
             const text = codeBox.value;
             textMeasurementMirror.textContent = text + '\n';
-            
-            const lineHeight = 19.5; 
+            const lineHeight = 19.5;
             const totalHeight = textMeasurementMirror.clientHeight;
             const linesCount = Math.max(1, Math.round(totalHeight / lineHeight));
-
             let numbersStr = '';
             for (let i = 1; i <= linesCount; i++) {
                 numbersStr += i + '<br>';
@@ -289,30 +285,20 @@
         document.querySelectorAll('.color-swatch').forEach(swatch => {
             swatch.addEventListener('click', () => {
                 const selectedColor = swatch.getAttribute('data-color');
-                hexDisplay.textContent = selectedColor;
                 colorPreviewCircle.style.backgroundColor = selectedColor;
                 navigator.clipboard.writeText(selectedColor);
-                const originalText = hexDisplay.textContent;
-                hexDisplay.textContent = "Copied! ✨";
-                setTimeout(() => { hexDisplay.textContent = originalText; }, 1200);
                 closeDrawers();
             });
-        });
-
-        hexDisplay.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navigator.clipboard.writeText(hexDisplay.textContent);
-            const original = hexDisplay.textContent;
-            hexDisplay.textContent = "Copied! ✨";
-            setTimeout(() => { hexDisplay.textContent = original; }, 1200);
         });
 
         document.querySelectorAll('.asset-item').forEach(item => {
             item.addEventListener('click', () => {
                 navigator.clipboard.writeText(item.getAttribute('data-url'));
                 const hint = item.querySelector('.copy-hint');
-                hint.textContent = 'Copied! 🍓';
-                setTimeout(() => { hint.textContent = 'Copy URL'; }, 1500);
+                if(hint) {
+                    hint.textContent = 'Copied! 🍓';
+                    setTimeout(() => { hint.textContent = 'Copy URL'; }, 1500);
+                }
             });
         });
 
@@ -338,25 +324,11 @@
         updatePreview();
         updateLineNumbers();
 
-       const duckTips = [
-    "HTML is like the skeleton of your webpage! It adds the text, images, and structure.",
-    "CSS is the outfit! It handles colors, cute fonts, spacing, and styling.",
-    "Tags in HTML always come in pairs with brackets, like <h1> and </h1>!",
-    "Want to change text color? Use 'color: #ff8c66;' inside your style attribute!",
-    "Stuck on a bug? Check if you forgot a semicolon (;) or a closing quote!",
-    "The <img> tag doesn't need a closing tag—just give it a src='...' attribute!",
-    "Every webpage starts with basic building blocks called elements. You're nesting them like digital building blocks!",
-    "Padding adds cozy breathing room *inside* your elements, keeping text away from the edges.",
-    "Colors on the web can use names like 'pink', or hex codes like '#ff758c' for exact pastel shades!",
-    "Don't be afraid to break things! Experimenting and fixing bugs is how every real developer learns.",
-    "The <body> tag holds everything your users actually see on the screen.",
-    "Webpages are read by browsers from top to bottom, just like reading a storybook!",
-    "You can center text in an instant by using 'text-align: center;' inside your style box.",
-    "Comments in your code look like <!-- secret note --> and the browser will ignore them—great for leaving yourself reminders!",
-    "Pixels (px) are like tiny building blocks for sizing. 16px is a nice, cozy size for reading body text!"
-];
+        const duckTips = [
+            "HTML is like the skeleton of your webpage! It adds the text, images, and structure.",
+            "CSS is the outfit! It handles colors, cute fonts, spacing, and styling."
+        ];
         let tipIndex = 0;
-        const duckContainer = document.getElementById('duckContainer');
         const duckSticker = document.querySelector('.duck-sticker');
         const speechBubble = document.getElementById('duckSpeechBubble');
         const duckText = document.getElementById('duckText');

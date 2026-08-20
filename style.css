@@ -2,14 +2,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Nunito', sans-serif;
-    color: #59422d;
+    color:  #8c7b9e;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #fefcff;
-    background-image: radial-gradient(#f3b5ff 1.2px, transparent 1.2px);
-    background-size: 24px 24px;
+    background-image: radial-gradient(#f3b5ff 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
 #portfolio {
@@ -38,7 +38,7 @@ body {
     transform: translate(-50%, -50%);
     height: 620px;
     width: 1350px;
-    background-color: #e8d7f1;
+    background-color: #f1e0d7;
     border: 8px solid #e8d7f1;
     border-radius: 22px;
     z-index: 1;
@@ -83,6 +83,9 @@ body {
     position: relative;
 }
 
+.left-page {
+  align-items: flex-start;
+}
 /* =========================
    PAGE HEADERS
 ========================= */
@@ -133,7 +136,7 @@ body {
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-size: 11px;
-    color: #59422d;
+    color:  #8c7b9e;
     padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
@@ -159,9 +162,6 @@ body {
 }
 
 .color-preview-circle {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
     display: inline-block;
 }
 
@@ -193,7 +193,7 @@ body {
     font-family: monospace;
     font-size: 11px;
     font-weight: 400;
-    color: #59422d;
+    color:  #8c7b9e;
     cursor: pointer;
 }
 
@@ -201,9 +201,7 @@ body {
     color: #ff8c66;
 }
 
-/* =========================
-   CODE EDITOR
-========================= */
+
 
 .editor-container {
     flex: 1;
@@ -220,12 +218,13 @@ body {
 .line-numbers {
     width: 36px;
     padding: 15px 10px 15px 8px;
-    background-color: #fff7f9;
+    background-color: #fff6fbcb;
     border-right: 1px dashed #ffd3d4;
     font-family: monospace;
+    font-weight: 100;
     font-size: 13px;
     line-height: 1.5;
-    color: #c4a4b2;
+    color: #ffa1bd;
     text-align: right;
     user-select: none;
     overflow: hidden;
@@ -242,13 +241,16 @@ textarea#codeBox {
     line-height: 1.5;
     resize: none;
     outline: none;
-    color: #59422d;
+    color:  #8c7b9e;
     box-sizing: border-box;
     height: 100%;
     overflow-y: auto;
     white-space: pre-wrap;
     word-break: break-all;
     overflow-x: hidden;
+    word-break: normal;
+overflow-wrap:none;
+hyphens:none;
 }
 
 .text-measurement-mirror {
@@ -289,7 +291,7 @@ textarea#codeBox {
     align-items: center;
     font-size: 11px;
     font-weight: 400;
-    color: #59422d;
+    color:  #8c7b9e;
     margin-bottom: 10px;
     border-bottom: 1.2px dashed #e8d7f1;
     padding-bottom: 6px;
@@ -391,7 +393,7 @@ textarea#codeBox {
 
 .font-preview-text {
     font-size: 13px;
-    color: #59422d;
+    color:  #8c7b9e;
 }
 
 .font-code {
@@ -427,7 +429,6 @@ textarea#codeBox {
 
 .notebook-nav li a {
     display: flex;
-    align-items: center;
     justify-content: center;
     height: 100px;
     width: 80px;
@@ -436,6 +437,10 @@ textarea#codeBox {
     font-weight: 400;
     color: transparent;
     transition: transform 0.2s ease;
+    color: #8c7b9e;
+    writing-mode: vertical-rl; 
+    padding:0px 10px 0px 0px;
+    letter-spacing: 0.5px;
 }
 
 .notebook-nav li a:hover {
@@ -487,7 +492,7 @@ textarea#codeBox {
     font-family: 'Nunito', sans-serif;
     font-size: 11px;
     font-weight: 400;
-    color: #59422d;
+    color:  #8c7b9e;
     z-index: 11;
     display: none;
 }
@@ -521,3 +526,4 @@ textarea#codeBox {
         opacity: 1;
     }
 }
+
