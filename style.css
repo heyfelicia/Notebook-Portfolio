@@ -1,15 +1,135 @@
+/* =========================
+   THEME STYLING OVERRIDES & TOOL BUTTONS
+========================= */
+
+/* --- Lavender Theme --- */
+body.theme-lavender {
+    color: #5c5562;
+    background-color: #f7f4f9;
+    background-image: radial-gradient(#e3d7ec 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+}
+body.theme-lavender .notebook-bottom { background-color: #ece2e8; border-color: #e2ece7; }
+body.theme-lavender .page-header { color: #9c7ba6; }
+body.theme-lavender .live-screen, body.theme-lavender .editor-container { border-color: #e2ece7; background: #fcfafc; }
+body.theme-lavender .line-numbers { background-color: #f4eeeec; border-color: #e2ece7; color: #b3a2be; }
+body.theme-lavender textarea#codeBox { color: #443c4c; background: #fdfbfd; }
+body.theme-lavender .popup-drawer { border-color: #e1d1eb; }
+body.theme-lavender .drawer-header { border-color: #e2ece7; color: #5c5562; }
+body.theme-lavender .asset-item { background: #f7f4f9; border-color: #e1d1eb; }
+body.theme-lavender .asset-item:hover { background: #faf4f8; border-color: #e8c0f4; }
+body.theme-lavender .font-item { background: #f7f4f9; border-color: #e2ece7; }
+body.theme-lavender .font-item:hover { background: #f2e6f7; }
+body.theme-lavender .tab-welcome { background-color: #d8bce3; }
+body.theme-lavender .tab-lessons { background-color: #f7c5e2; }
+body.theme-lavender .tab-assignments { background-color: #fcebc5; }
+body.theme-lavender .duck-speech { border-color: #e1d1eb; color: #5c5562; }
+
+/* Lavender Tool Buttons */
+body.theme-lavender .tool-btn {
+    background-color: #f7f4f9;
+    border: 1.2px solid #e1d1eb;
+    color: #5c5562;
+}
+body.theme-lavender .tool-btn:hover {
+    border-color: #9c7ba6;
+    color: #82638c;
+    background-color: #f5f0f8;
+}
+
+
+/* --- Mocha Theme --- */
+body.theme-mocha {
+    color: #705f56;
+    background-color: #faf7f5;
+    background-image: radial-gradient(#f0e1d5 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+}
+body.theme-mocha .notebook-bottom { background-color: #f2e4dc; border-color: #e2ebd8; }
+body.theme-mocha .page-header { color: #b8866b; }
+body.theme-mocha .live-screen, body.theme-mocha .editor-container { border-color: #e2ebd8; background: #fbf9f8; }
+body.theme-mocha .line-numbers { background-color: #f4f7f1; border-color: #e2ebd8; color: #a4b39b; }
+body.theme-mocha textarea#codeBox { color: #574840; background: #fcfbfa; }
+body.theme-mocha .popup-drawer { border-color: #d5e2cb; }
+body.theme-mocha .drawer-header { border-color: #e2ebd8; color: #705f56; }
+body.theme-mocha .asset-item { background: #f7f4f2; border-color: #d5e2cb; }
+body.theme-mocha .asset-item:hover { background: #f7f0ec; border-color: #b8866b; }
+body.theme-mocha .font-item { background: #faf7f5; border-color: #e2ebd8; }
+body.theme-mocha .font-item:hover { background: #f5ece4; }
+body.theme-mocha .tab-welcome { background-color: #f7d6c8; }
+body.theme-mocha .tab-lessons { background-color: #c8e0c4; }
+body.theme-mocha .tab-assignments { background-color: #f2e2b8; }
+body.theme-mocha .duck-speech { border-color: #d5e2cb; color: #705f56; }
+
+/* Mocha Tool Buttons */
+body.theme-mocha .tool-btn {
+    background-color: #f7f4f2;
+    border: 1.2px solid #d5e2cb;
+    color: #705f56;
+
+     border: 1.2px solid #b8866b;
+    color: #9c6c52;
+    background-color: #f7f0ec;
+}
+body.theme-mocha .tool-btn:hover {
+    border: 1.2px solid #b8866b;
+    color: #9c6c52;
+    background-color: #f7f0ec;
+}
+
+
+/* --- Periwinkle Theme --- */
+body.theme-periwinkle {
+    color: #5c6270;
+    background-color: #f6f8fb;
+    background-image: radial-gradient(#d4e1f2 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+}
+body.theme-periwinkle .notebook-bottom { background-color: #e3ebf7; border-color: #deddf9; }
+body.theme-periwinkle .page-header { color: #7b96cc; }
+body.theme-periwinkle .live-screen, body.theme-periwinkle .editor-container { border-color: #f2e2ec; background: #f9fbfe; }
+body.theme-periwinkle .line-numbers { background-color: #f1f5fb; border-color: #f2e2ec; color: #a2b3cc; }
+body.theme-periwinkle textarea#codeBox { color: #424957; background: #fbfcff; }
+body.theme-periwinkle .popup-drawer { border-color: #d5e0f2; }
+body.theme-periwinkle .drawer-header { border-color: #f2e2ec; color: #5c6270; }
+body.theme-periwinkle .asset-item { background: #f4f7fb; border-color: #d5e0f2; }
+body.theme-periwinkle .asset-item:hover { background: #f0f4fb; border-color: #7b96cc; }
+body.theme-periwinkle .font-item { background: #f6f8fb; border-color: #f2e2ec; }
+body.theme-periwinkle .font-item:hover { background: #f7e6f2; }
+body.theme-periwinkle .tab-welcome { background-color: #b8d4f7; }
+body.theme-periwinkle .tab-lessons { background-color: #f7c5e2; }
+body.theme-periwinkle .tab-assignments { background-color: #f7e8b5; }
+body.theme-periwinkle .duck-speech { border-color: #d5e0f2; color: #5c6270; }
+
+/* Periwinkle Tool Buttons */
+body.theme-periwinkle .tool-btn {
+    background-color: #f4f7fb;
+    border: 1.2px solid #d5e0f2;
+    color: #5c6270;
+}
+body.theme-periwinkle .tool-btn:hover {
+    border-color: #7b96cc;
+    color: #5875ab;
+    background-color: #f0f4fb;
+}
+
+
+body.theme-lavender #themeHeartIcon { fill: #9c7ba6; }
+body.theme-mocha #themeHeartIcon { fill: #b8866b; }
+body.theme-periwinkle #themeHeartIcon { fill: #7b96cc; }
+
+/* =========================
+   YOUR ORIGINAL LAYOUT & COMPONENT STYLES
+========================= */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Nunito', sans-serif;
-    color:  #8c7b9e;
+    font-weight: 300;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #fefcff;
-    background-image: radial-gradient(#f3b5ff 1px, transparent 1px);
-    background-size: 20px 20px;
 }
 
 #portfolio {
@@ -19,10 +139,6 @@ body {
     position: relative;
     width: 100%;
 }
-
-/* =========================
-   NOTEBOOK
-========================= */
 
 .notebook-wrapper {
     position: relative;
@@ -38,8 +154,8 @@ body {
     transform: translate(-50%, -50%);
     height: 620px;
     width: 1350px;
-    background-color: #f1e0d7;
-    border: 8px solid #e8d7f1;
+    background-color: #ece2e8;
+    border: 8px solid #e2ece7;
     border-radius: 22px;
     z-index: 1;
 }
@@ -66,7 +182,7 @@ body {
     bottom: 25px;
     left: 50%;
     width: 1px;
-    background-color: #f4ddff;
+    background-color: #f2eaf5;
     transform: translateX(-50%);
     z-index: 4;
 }
@@ -86,36 +202,26 @@ body {
 .left-page {
   align-items: flex-start;
 }
-/* =========================
-   PAGE HEADERS
-========================= */
 
 .page-header {
     font-family: 'Nunito', sans-serif;
     font-size: 17px;
-    font-weight: 400;
-    color: #7bcbd4;
+    font-weight: 300;
+    color: #9c7ba6;
     text-align: center;
     margin-bottom: 15px;
+    letter-spacing: 0.8px;
 }
-
-/* =========================
-   LIVE PREVIEW
-========================= */
 
 .live-screen {
     flex: 1;
     width: 100%;
     height: 100%;
-    border: 1.3px dashed #e8d7f1;
-    background: #fffefd;
+    border: 1.3px dashed #e2ece7;
     border-radius: 12px;
+    background: #fcfafc;
     overflow: auto;
 }
-
-/* =========================
-   EDITOR HEADER
-========================= */
 
 .editor-header-row {
     display: flex;
@@ -131,43 +237,58 @@ body {
 }
 
 .tool-btn {
-    background-color: #ffffff;
-    border: 1.2px dashed #d8afee;
     font-family: 'Nunito', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 11px;
-    color:  #8c7b9e;
-    padding: 5px 10px;
-    border-radius: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
     transition: all 0.2s ease;
-    height: 32px;
-    box-sizing: border-box;
 }
 
-.tool-btn:hover {
-    border-color: #ff8c66;
-    color: #ff8c66;
-    background-color: #fffaf7;
+.theme-toggle-btn {
+    border-radius:50%;
+    padding: 7px;
+    gap: 4px;
+    
+}
+
+.icon-tool-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.font-tool-btn {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.asset-tool-btn img {
+    width: 15px;
+    height: auto;
+    display: block;
 }
 
 .color-trigger-btn {
-    display: inline-flex;
+    position: relative;
+    display: flex;
     align-items: center;
-    gap: 6px;
-    cursor: pointer;
+    justify-content: center;
 }
 
 .color-preview-circle {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    min-height: 14px;
+    border-radius: 50%;
     display: inline-block;
+    background-color: #d8bce3; 
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
-
-/* =========================
-   COLOR PICKER
-========================= */
 
 .swatch-grid {
     display: grid;
@@ -192,23 +313,16 @@ body {
 #hexDisplay {
     font-family: monospace;
     font-size: 11px;
-    font-weight: 400;
-    color:  #8c7b9e;
+    font-weight: 300;
     cursor: pointer;
 }
-
-#hexDisplay:hover {
-    color: #ff8c66;
-}
-
-
 
 .editor-container {
     flex: 1;
     display: flex;
-    background: #fffefd;
-    border: 1.2px dashed #ffb7c5;
+    border: 1.2px dashed #e2ece7;
     border-radius: 12px;
+    background: #fdfbfd;
     overflow: hidden;
     box-sizing: border-box;
     height: calc(100% - 40px);
@@ -217,14 +331,14 @@ body {
 
 .line-numbers {
     width: 36px;
+    background-color: #f4eeec;
+    border-right: 1px dashed #e2ece7;
     padding: 15px 10px 15px 8px;
-    background-color: #fff6fbcb;
-    border-right: 1px dashed #ffd3d4;
     font-family: monospace;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 13px;
     line-height: 1.5;
-    color: #ffa1bd;
+    color: #b3a2be;
     text-align: right;
     user-select: none;
     overflow: hidden;
@@ -233,24 +347,22 @@ body {
 
 textarea#codeBox {
     flex: 1;
-    background: #fffdfc;
     border: none;
+    background: transparent;
     padding: 15px;
     font-family: monospace;
     font-size: 13px;
     line-height: 1.5;
+    color: #443c4c;
     resize: none;
     outline: none;
-    color:  #8c7b9e;
     box-sizing: border-box;
     height: 100%;
     overflow-y: auto;
     white-space: pre-wrap;
-    word-break: break-all;
-    overflow-x: hidden;
     word-break: normal;
-overflow-wrap:none;
-hyphens:none;
+    overflow-wrap: none;
+    hyphens: none;
 }
 
 .text-measurement-mirror {
@@ -269,17 +381,13 @@ hyphens:none;
     box-sizing: border-box;
 }
 
-/* =========================
-   POPUP DRAWERS
-========================= */
-
 .popup-drawer {
     position: absolute;
     top: 47px;
     left: 0;
     right: 0;
     background: #ffffff;
-    border: 1.2px dashed #ffb7c5;
+    border: 1.2px dashed #e1d1eb;
     border-radius: 12px 12px 0 0;
     padding: 12px 15px;
     z-index: 100;
@@ -290,10 +398,10 @@ hyphens:none;
     justify-content: space-between;
     align-items: center;
     font-size: 11px;
-    font-weight: 400;
-    color:  #8c7b9e;
+    font-weight: 300;
+    color: #5c5562;
     margin-bottom: 10px;
-    border-bottom: 1.2px dashed #e8d7f1;
+    border-bottom: 1.2px dashed #e2ece7;
     padding-bottom: 6px;
 }
 
@@ -301,18 +409,9 @@ hyphens:none;
     background: none;
     border: none;
     cursor: pointer;
-    font-weight: 400;
-    color: #8c7b9e;
+    font-weight: 300;
     font-size: 13px;
 }
-
-.close-drawer:hover {
-    color: #ff8c66;
-}
-
-/* =========================
-   STICKER ASSETS
-========================= */
 
 .asset-drawer {
     max-height: 240px;
@@ -328,8 +427,8 @@ hyphens:none;
 }
 
 .asset-item {
-    background: #fbf5ff;
-    border: 1.2px dashed #bb89d4;
+    background: #f7f4f9;
+    border: 1.2px dashed #e1d1eb;
     border-radius: 10px;
     padding: 8px 4px;
     text-align: center;
@@ -342,9 +441,8 @@ hyphens:none;
 }
 
 .asset-item:hover {
-    background: #fffcf4;
-    transform: translateY(-2px);
-    border-color: #ff8c66;
+    background: #faf4f8;
+    border-color: #9c7ba6;
 }
 
 .asset-item img {
@@ -358,14 +456,10 @@ hyphens:none;
 .copy-hint {
     display: block;
     font-size: 8px;
-    font-weight: 400;
-    color: #8c7b9e;
+    font-weight: 300;
+    color: #b3a2be;
     margin-top: 2px;
 }
-
-/* =========================
-   FONT DRAWER
-========================= */
 
 .font-list {
     display: flex;
@@ -379,8 +473,8 @@ hyphens:none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: hsl(20, 100%, 99%);
-    border: 1.3px dashed #e8d7f1;
+    background: #f7f4f9;
+    border: 1.3px dashed #e2ece7;
     padding: 6px 10px;
     border-radius: 8px;
     cursor: pointer;
@@ -388,26 +482,23 @@ hyphens:none;
 }
 
 .font-item:hover {
-    background: #fff0c4;
+    background: #f2e6f7;
 }
 
 .font-preview-text {
     font-size: 13px;
-    color:  #8c7b9e;
+    font-weight: 300;
 }
 
 .font-code {
     font-family: monospace;
     font-size: 10px;
-    color: #8c7b9e;
-    background: #fffdf9;
+    font-weight: 300;
+    color: #b3a2be;
+    background: rgba(0,0,0,0.02);
     padding: 2px 6px;
     border-radius: 4px;
 }
-
-/* =========================
-   NOTEBOOK TABS
-========================= */
 
 .notebook-nav {
     position: absolute;
@@ -434,35 +525,21 @@ hyphens:none;
     width: 80px;
     border-radius: 0 14px 14px 0;
     text-decoration: none;
-    font-weight: 400;
-    color: transparent;
+    font-weight: 300;
     transition: transform 0.2s ease;
-    color: #8c7b9e;
+    color: #443c4c;
     writing-mode: vertical-rl; 
-    padding:0px 10px 0px 0px;
-    letter-spacing: 0.5px;
+    padding: 0px 10px 0px 0px;
+    letter-spacing: 0.8px;
 }
+
+.tab-welcome { background-color: #d8bce3; }
+.tab-lessons { background-color: #f7c5e2; }
+.tab-assignments { background-color: #fcebc5; }
 
 .notebook-nav li a:hover {
     transform: translateX(12px);
 }
-
-.tab-welcome {
-    background-color: #ffdb71;
-    filter: saturate(1);
-}
-
-.tab-lessons {
-    background-color: #ffb7c5;
-}
-
-.tab-assignments {
-    background-color: #9ee2ea;
-}
-
-/* =========================
-   DUCK STICKER
-========================= */
 
 .duck-container {
     position: absolute;
@@ -485,14 +562,14 @@ hyphens:none;
     bottom: 100px;
     left: 100px;
     background: #ffffff;
-    border: 1.3px dashed #ffb7c5;
+    border: 1.3px dashed #e1d1eb;
     border-radius: 12px;
     padding: 10px 14px;
     width: 180px;
     font-family: 'Nunito', sans-serif;
     font-size: 11px;
-    font-weight: 400;
-    color:  #8c7b9e;
+    font-weight: 300;
+    color: #5c5562;
     z-index: 11;
     display: none;
 }
@@ -502,28 +579,8 @@ hyphens:none;
     animation: floatBubble 0.3s ease;
 }
 
-.duck-speech::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 20px;
-    width: 10px;
-    height: 10px;
-    background: #ffffff;
-    border-right: 1.3px dashed #ffb7c5;
-    border-bottom: 1.3px dashed #ffb7c5;
-    transform: rotate(45deg);
-}
 
 @keyframes floatBubble {
-    0% {
-        transform: translateY(5px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    0% { transform: translateY(5px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
-

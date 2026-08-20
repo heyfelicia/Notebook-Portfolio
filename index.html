@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;700&family=Comic+Neue:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
         rel="stylesheet">
 </head>
 
-<body>
+<body class="theme-lavender">
 
     <main id="portfolio">
         <div class="notebook-wrapper">
@@ -50,22 +50,26 @@
                     <div class="editor-header-row">
                         <div class="page-header" style="margin-bottom: 0;"> &lt;/&gt; Code Editor</div>
                         <div class="tools-right" style="display: flex; gap: 6px; align-items: center;">
+                            
+                            <!-- THEME TOGGLE BUTTON -->
+                           <button id="themeToggleBtn" class="tool-btn theme-toggle-btn" title="Switch Theme">
+    <svg id="themeHeartIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="transition: fill 0.2s ease;">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+</button>
+
                             <!-- Fonts Icon Button -->
-                            <button id="fontBtn" class="tool-btn" title="Fonts"
-                                style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #ebdbe9; background: #fff; cursor: pointer; font-weight: 700; font-size: 13px; color: #8c7b9e; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">Aa</button>
+                            <button id="fontBtn" class="tool-btn icon-tool-btn font-tool-btn" title="Fonts">Aa</button>
                             
                             <!-- Stickers Icon Button -->
-                            <button id="assetBtn" class="tool-btn" title="Stickers & Assets"
-                                style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #ebdbe9; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <img src="images/star.svg" style="width: 15px; height: auto;">
+                            <button id="assetBtn" class="tool-btn icon-tool-btn asset-tool-btn" title="Stickers & Assets">
+                                <img src="images/star.svg" alt="Stickers">
                             </button>
 
                             <!-- Custom Color Picker Trigger -->
                             <div class="color-picker-tool">
-                                <button id="colorBtn" class="tool-btn color-trigger-btn" title="Colors"
-                                    style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #ebdbe9; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0;">
-                                    <span id="colorPreviewCircle" class="color-preview-circle"
-                                        style="background-color: #ffb7c5; width: 14px; height: 14px; min-width: 14px; min-height: 14px; border-radius: 50%; display: inline-block;"></span>
+                                <button id="colorBtn" class="tool-btn icon-tool-btn color-trigger-btn" title="Colors">
+                                    <span id="colorPreviewCircle" class="color-preview-circle"></span>
                                 </button>
                             </div>
                         </div>
@@ -209,143 +213,7 @@
         </div>
 
     </main>
-
-    <script>
-        const codeBox = document.getElementById('codeBox');
-        const outputFrame = document.getElementById('outputFrame');
-        const lineNumbers = document.getElementById('lineNumbers');
-        const textMeasurementMirror = document.getElementById('textMeasurementMirror');
-
-        const assetBtn = document.getElementById('assetBtn');
-        const assetDrawer = document.getElementById('assetDrawer');
-        const fontBtn = document.getElementById('fontBtn');
-        const fontDrawer = document.getElementById('fontDrawer');
-        const colorBtn = document.getElementById('colorBtn');
-        const colorDrawer = document.getElementById('colorDrawer');
-        const colorPreviewCircle = document.getElementById('colorPreviewCircle');
-
-        const defaultCode = `<div style="text-align: center; padding: 40px; font-family: 'Nunito', sans-serif;">
-    <h2 style="color:#D9BCEB; margin-bottom: 10px; font-weight:400;">Welcome</h2>
-    <p style="color: #8c7b9e; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
-        Thank you so much for joining today.<br>
-        Start typing your code on the right to see the magic happen right here. </p>
-    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NTkyejNhN2RxOGl5NTloaXA2d2hoZXIweGxva3l4aWt5NmpmMnZ3biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13AcmSNW5O7WV2/giphy.gif" alt="Bunny" style="display: block; margin: 0 auto; width: 120px; height: auto;">
-</div>`;
-
-        codeBox.value = defaultCode;
-
-        function updateLineNumbers() {
-            const text = codeBox.value;
-            textMeasurementMirror.textContent = text + '\n';
-            const lineHeight = 19.5;
-            const totalHeight = textMeasurementMirror.clientHeight;
-            const linesCount = Math.max(1, Math.round(totalHeight / lineHeight));
-            let numbersStr = '';
-            for (let i = 1; i <= linesCount; i++) {
-                numbersStr += i + '<br>';
-            }
-            lineNumbers.innerHTML = numbersStr;
-        }
-
-        function updatePreview() {
-            const userCode = codeBox.value;
-            const frameDoc = outputFrame.contentDocument || outputFrame.contentWindow.document;
-            frameDoc.open();
-            frameDoc.write(`
-                <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;700&family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@400;500;600;700&family=DynaPuff:wght@400;500;600;700&family=Coiny&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
-                ${userCode}
-            `);
-            frameDoc.close();
-        }
-
-        function closeDrawers() {
-            assetDrawer.style.display = 'none';
-            fontDrawer.style.display = 'none';
-            colorDrawer.style.display = 'none';
-        }
-
-        assetBtn.addEventListener('click', () => {
-            const isOpen = assetDrawer.style.display === 'block';
-            closeDrawers();
-            assetDrawer.style.display = isOpen ? 'none' : 'block';
-        });
-
-        fontBtn.addEventListener('click', () => {
-            const isOpen = fontDrawer.style.display === 'block';
-            closeDrawers();
-            fontDrawer.style.display = isOpen ? 'none' : 'block';
-        });
-
-        colorBtn.addEventListener('click', () => {
-            const isOpen = colorDrawer.style.display === 'block';
-            closeDrawers();
-            colorDrawer.style.display = isOpen ? 'none' : 'block';
-        });
-
-        document.querySelectorAll('.color-swatch').forEach(swatch => {
-            swatch.addEventListener('click', () => {
-                const selectedColor = swatch.getAttribute('data-color');
-                colorPreviewCircle.style.backgroundColor = selectedColor;
-                navigator.clipboard.writeText(selectedColor);
-                closeDrawers();
-            });
-        });
-
-        document.querySelectorAll('.asset-item').forEach(item => {
-            item.addEventListener('click', () => {
-                navigator.clipboard.writeText(item.getAttribute('data-url'));
-                const hint = item.querySelector('.copy-hint');
-                if(hint) {
-                    hint.textContent = 'Copied! 🍓';
-                    setTimeout(() => { hint.textContent = 'Copy URL'; }, 1500);
-                }
-            });
-        });
-
-        document.querySelectorAll('.font-item').forEach(item => {
-            item.addEventListener('click', () => {
-                navigator.clipboard.writeText(item.getAttribute('data-code'));
-                const codeSpan = item.querySelector('.font-code');
-                const original = codeSpan.textContent;
-                codeSpan.textContent = 'Copied! ✨';
-                setTimeout(() => { codeSpan.textContent = original; }, 1500);
-            });
-        });
-
-        codeBox.addEventListener('input', () => {
-            updatePreview();
-            updateLineNumbers();
-        });
-
-        codeBox.addEventListener('scroll', () => {
-            lineNumbers.scrollTop = codeBox.scrollTop;
-        });
-
-        updatePreview();
-        updateLineNumbers();
-
-        const duckTips = [
-            "HTML is like the skeleton of your webpage! It adds the text, images, and structure.",
-            "CSS is the outfit! It handles colors, cute fonts, spacing, and styling."
-        ];
-        let tipIndex = 0;
-        const duckSticker = document.querySelector('.duck-sticker');
-        const speechBubble = document.getElementById('duckSpeechBubble');
-        const duckText = document.getElementById('duckText');
-
-        function duckSaysStuff(event) {
-            event.stopPropagation();
-            speechBubble.style.display = 'block';
-            duckText.textContent = duckTips[tipIndex];
-            tipIndex = (tipIndex + 1) % duckTips.length;
-        }
-
-        document.addEventListener('click', (event) => {
-            if (!duckSticker.contains(event.target)) {
-                speechBubble.style.display = 'none';
-            }
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
