@@ -87,60 +87,43 @@ function closeDrawers() {
 
 
 function switchSnippetTab(tabName) {
-
     const htmlTabBtn = document.getElementById('htmlTabBtn');
     const cssTabBtn = document.getElementById('cssTabBtn');
     const recipeTabBtn = document.getElementById('recipeTabBtn');
+    const componentTabBtn = document.getElementById('componentTabBtn');
 
     const htmlContent = document.getElementById('htmlSnippetContent');
     const cssContent = document.getElementById('cssSnippetContent');
     const recipeContent = document.getElementById('recipeSnippetContent');
+    const componentContent = document.getElementById('componentSnippetContent');
 
-
+    // Hide everything first
     if (htmlContent) htmlContent.style.display = 'none';
     if (cssContent) cssContent.style.display = 'none';
     if (recipeContent) recipeContent.style.display = 'none';
+    if (componentContent) componentContent.style.display = 'none';
 
-
+    // Remove active class from all buttons
     if (htmlTabBtn) htmlTabBtn.classList.remove('active');
     if (cssTabBtn) cssTabBtn.classList.remove('active');
     if (recipeTabBtn) recipeTabBtn.classList.remove('active');
+    if (componentTabBtn) componentTabBtn.classList.remove('active');
 
-
+    // Show the selected tab content and activate its button
     if (tabName === 'html') {
-
-        if (htmlContent) {
-            htmlContent.style.display = 'flex';
-        }
-
-        if (htmlTabBtn) {
-            htmlTabBtn.classList.add('active');
-        }
-
+        if (htmlContent) htmlContent.style.display = 'flex'; // or 'block' depending on your default setup
+        if (htmlTabBtn) htmlTabBtn.classList.add('active');
     } else if (tabName === 'css') {
-
-        if (cssContent) {
-            cssContent.style.display = 'flex';
-        }
-
-        if (cssTabBtn) {
-            cssTabBtn.classList.add('active');
-        }
-
+        if (cssContent) cssContent.style.display = 'flex';
+        if (cssTabBtn) cssTabBtn.classList.add('active');
     } else if (tabName === 'recipes') {
-
-        if (recipeContent) {
-            recipeContent.style.display = 'flex';
-        }
-
-        if (recipeTabBtn) {
-            recipeTabBtn.classList.add('active');
-        }
-
+        if (recipeContent) recipeContent.style.display = 'flex';
+        if (recipeTabBtn) recipeTabBtn.classList.add('active');
+    } else if (tabName === 'components') {
+        if (componentContent) componentContent.style.display = 'flex';
+        if (componentTabBtn) componentTabBtn.classList.add('active');
     }
-
 }
-
 
 if (assetBtn && assetDrawer) {
 
@@ -210,9 +193,14 @@ document.querySelectorAll('.snippet-item').forEach(item => {
 
     item.addEventListener('click', () => {
 
-        const snippetCode = item
+        const rawSnippet = item
             .getAttribute('data-snippet')
             .replace(/\\n/g, '\n');
+
+        // Automatically add a trailing space if it's a CSS style or recipe (doesn't start with '<')
+        const snippetCode = (!rawSnippet.trim().startsWith('<') && !rawSnippet.endsWith(' ')) 
+            ? rawSnippet + ' ' 
+            : rawSnippet;
 
 
         const startPos = codeBox.selectionStart;
