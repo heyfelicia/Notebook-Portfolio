@@ -4,7 +4,7 @@ body.theme-lavender {
     background-image: radial-gradient(#e3d7ec 1.2px, transparent 1.2px);
     background-size: 20px 20px;
 }
-body.theme-lavender .notebook-bottom { background-color:#d5ffea; border-color: #e2ece7; }
+body.theme-lavender .notebook-bottom { background-color:#dfecdc; border-color:#dfecdc; }
 body.theme-lavender .page-header { color: #9c7ba6; }
 body.theme-lavender .live-screen, body.theme-lavender .editor-container { border-color: #fcfafc; background: #fcfafc; }
 body.theme-lavender .line-numbers { background-color:#fcf3ff; border-color: #e2ece7; color: #b3a2be; }
