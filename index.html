@@ -91,102 +91,394 @@
                         </div>
                     </div>
 
+
                     <!-- SNIPPET LIBRARY DRAWER -->
-                    <!-- SNIPPET LIBRARY DRAWER -->
-                    <!-- SNIPPET LIBRARY DRAWER -->
-                    <div id="snippetDrawer" class="popup-drawer">
+                  <div id="snippetDrawer" class="popup-drawer">
 
-                        <!-- HEADER -->
-                        <div class="drawer-header">
-                            <span class="drawer-title">HTML & CSS Starters</span>
-                            <button class="close-drawer" onclick="closeDrawers()">✕</button>
-                        </div>
+    <div class="drawer-header">
+        <span class="drawer-title">HTML & CSS Starters</span>
+        <button class="close-drawer" onclick="closeDrawers()">✕</button>
+    </div>
 
-                        <!-- EASY-ACCESS TABS -->
-                        <div class="drawer-tabs">
-                            <button id="htmlTabBtn" class="drawer-tab-btn active"
-                                onclick="switchSnippetTab('html')">HTML Elements</button>
-                            <button id="cssTabBtn" class="drawer-tab-btn" onclick="switchSnippetTab('css')">CSS
-                                Properties</button>
-                        </div>
+    <div class="drawer-tabs">
+        <button id="htmlTabBtn" class="drawer-tab-btn active"
+            onclick="switchSnippetTab('html')">
+            HTML Elements
+        </button>
 
-                        <!-- HTML CONTENT ROW -->
-                        <div id="htmlSnippetContent" class="font-list snippet-tab-content">
-                            <div class="font-item snippet-item" data-snippet="&lt;h1&gt;Main Heading&lt;/h1&gt;">
-                                <span class="font-preview-text">Heading Tag</span>
-                                <span class="font-code">&lt;h1&gt;</span>
-                            </div>
-                            <div class="font-item snippet-item"
-                                data-snippet="&lt;p&gt;Write your paragraph text here...&lt;/p&gt;">
-                                <span class="font-preview-text">Paragraph Tag</span>
-                                <span class="font-code">&lt;p&gt;</span>
-                            </div>
-                            <div class="font-item snippet-item"
-                                data-snippet="&lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot;&gt;Click me!&lt;/a&gt;">
-                                <span class="font-preview-text">Hyperlink</span>
-                                <span class="font-code">&lt;a href&gt;</span>
-                            </div>
-                            <div class="font-item snippet-item"
-                                data-snippet="&lt;img src=&quot;images/duck.svg&quot; alt=&quot;Cute description&quot;&gt;">
-                                <span class="font-preview-text">Image Tag</span>
-                                <span class="font-code">&lt;img src&gt;</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="&lt;button&gt;Click Me! ✨&lt;/button&gt;">
-                                <span class="font-preview-text">Button Element</span>
-                                <span class="font-code">&lt;button&gt;</span>
-                            </div>
-                            <div class="font-item snippet-item"
-                                data-snippet="&lt;ul&gt;\n  &lt;li&gt;First item&lt;/li&gt;\n  &lt;li&gt;Second item&lt;/li&gt;\n&lt;/ul&gt;">
-                                <span class="font-preview-text">Unordered List</span>
-                                <span class="font-code">&lt;ul&gt;&lt;li&gt;</span>
-                            </div>
-                            <div class="font-item snippet-item"
-                                data-snippet="&lt;div&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/div&gt;">
-                                <span class="font-preview-text">Container Box</span>
-                                <span class="font-code">&lt;div&gt;</span>
-                            </div>
-                        </div>
+        <button id="cssTabBtn" class="drawer-tab-btn"
+            onclick="switchSnippetTab('css')">
+            CSS Properties
+        </button>
 
-                        <!-- CSS CONTENT ROW -->
-                        <div id="cssSnippetContent" class="font-list snippet-tab-content" style="display: none;">
-                            <div class="font-item snippet-item" data-snippet="color: #574840;">
-                                <span class="font-preview-text">Change Font Color</span>
-                                <span class="font-code">color:</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="font-size: 18px;">
-                                <span class="font-preview-text">Change Font Size</span>
-                                <span class="font-code">font-size:</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="text-align: center;">
-                                <span class="font-preview-text">Align Text</span>
-                                <span class="font-code">text-align:</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="background-color: #FFF0F3;">
-                                <span class="font-preview-text">Background Color</span>
-                                <span class="font-code">background-color:</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="margin: 10px;">
-                                <span class="font-preview-text">Outer Spacing (Margin)</span>
-                                <span class="font-code">margin:</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="padding: 15px;">
-                                <span class="font-preview-text">Inner Spacing (Padding)</span>
-                                <span class="font-code">padding:</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="border: 2px solid #FF8FAB;">
-                                <span class="font-preview-text">Border Outline</span>
-                                <span class="font-code">border:</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="border-radius: 12px;">
-                                <span class="font-preview-text">Rounded Corners</span>
-                                <span class="font-code">border-radius:</span>
-                            </div>
-                            <div class="font-item snippet-item" data-snippet="display: flex;">
-                                <span class="font-preview-text">Flexbox Layout</span>
-                                <span class="font-code">display: flex;</span>
-                            </div>
-                        </div>
-                    </div>
+        <button id="recipeTabBtn" class="drawer-tab-btn" onclick="switchSnippetTab('recipes')">
+    Code Recipes
+</button>
+    </div>
+
+    <div id="htmlSnippetContent" class="font-list snippet-tab-content">
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;h1&gt;Main Heading&lt;/h1&gt;">
+            <span class="font-preview-text">Heading</span>
+            <span class="font-code">&lt;h1&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;p&gt;Write your paragraph text here...&lt;/p&gt;">
+            <span class="font-preview-text">Paragraph</span>
+            <span class="font-code">&lt;p&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;div&gt;\n  Content goes here!\n&lt;/div&gt;">
+            <span class="font-preview-text">Container Box</span>
+            <span class="font-code">&lt;div&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;p&gt;This is &lt;span&gt;special text&lt;/span&gt;!&lt;/p&gt;">
+            <span class="font-preview-text">Inline Text</span>
+            <span class="font-code">&lt;span&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;p&gt;This text is &lt;strong&gt;important!&lt;/strong&gt;&lt;/p&gt;">
+            <span class="font-preview-text">Bold Important Text</span>
+            <span class="font-code">&lt;strong&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;p&gt;This text is &lt;b&gt;bold!&lt;/b&gt;&lt;/p&gt;">
+            <span class="font-preview-text">Bold Text</span>
+            <span class="font-code">&lt;b&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;p&gt;This text is &lt;em&gt;emphasized!&lt;/em&gt;&lt;/p&gt;">
+            <span class="font-preview-text">Emphasized Text</span>
+            <span class="font-code">&lt;em&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;p&gt;This text is &lt;i&gt;italic!&lt;/i&gt;&lt;/p&gt;">
+            <span class="font-preview-text">Italic Text</span>
+            <span class="font-code">&lt;i&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="Hello!&lt;br&gt;This starts on a new line.">
+            <span class="font-preview-text">Line Break</span>
+            <span class="font-code">&lt;br&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;p&gt;Content above&lt;/p&gt;\n&lt;hr&gt;\n&lt;p&gt;Content below&lt;/p&gt;">
+            <span class="font-preview-text">Horizontal Line</span>
+            <span class="font-code">&lt;hr&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot;&gt;Click me!&lt;/a&gt;">
+            <span class="font-preview-text">Hyperlink</span>
+            <span class="font-code">&lt;a href&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;img src=&quot;images/duck.svg&quot; alt=&quot;Cute description&quot;&gt;">
+            <span class="font-preview-text">Image</span>
+            <span class="font-code">&lt;img&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;button&gt;Click Me! ✨&lt;/button&gt;">
+            <span class="font-preview-text">Button</span>
+            <span class="font-code">&lt;button&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;ul&gt;\n  &lt;li&gt;First item&lt;/li&gt;\n  &lt;li&gt;Second item&lt;/li&gt;\n  &lt;li&gt;Third item&lt;/li&gt;\n&lt;/ul&gt;">
+            <span class="font-preview-text">Unordered List</span>
+            <span class="font-code">&lt;ul&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;ol&gt;\n  &lt;li&gt;First step&lt;/li&gt;\n  &lt;li&gt;Second step&lt;/li&gt;\n  &lt;li&gt;Third step&lt;/li&gt;\n&lt;/ol&gt;">
+            <span class="font-preview-text">Numbered List</span>
+            <span class="font-code">&lt;ol&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;table&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Name&lt;/th&gt;\n    &lt;th&gt;Favorite Color&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Duck&lt;/td&gt;\n    &lt;td&gt;Yellow&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;">
+            <span class="font-preview-text">Table</span>
+            <span class="font-code">&lt;table&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;form&gt;\n  &lt;label&gt;Your Name:&lt;/label&gt;\n  &lt;input type=&quot;text&quot; placeholder=&quot;Type here...&quot;&gt;\n\n  &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;\n&lt;/form&gt;">
+            <span class="font-preview-text">Simple Form</span>
+            <span class="font-code">&lt;form&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;label&gt;Course Progress:&lt;/label&gt;\n&lt;progress value=&quot;60&quot; max=&quot;100&quot;&gt;60%&lt;/progress&gt;">
+            <span class="font-preview-text">Progress Bar</span>
+            <span class="font-code">&lt;progress&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;details&gt;\n  &lt;summary&gt;Click to learn more!&lt;/summary&gt;\n  &lt;p&gt;Surprise! Here is some hidden information. ✨&lt;/p&gt;\n&lt;/details&gt;">
+            <span class="font-preview-text">Expandable Details</span>
+            <span class="font-code">&lt;details&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;audio controls&gt;\n  &lt;source src=&quot;audio.mp3&quot; type=&quot;audio/mpeg&quot;&gt;\n  Your browser does not support audio.\n&lt;/audio&gt;">
+            <span class="font-preview-text">Audio Player</span>
+            <span class="font-code">&lt;audio&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;video width=&quot;320&quot; controls&gt;\n  &lt;source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot;&gt;\n  Your browser does not support video.\n&lt;/video&gt;">
+            <span class="font-preview-text">Video Player</span>
+            <span class="font-code">&lt;video&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;script&gt;\n  alert(&quot;Hello, coder! 🎉&quot;);\n&lt;/script&gt;">
+            <span class="font-preview-text">JavaScript</span>
+            <span class="font-code">&lt;script&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;header&gt;\n  &lt;h1&gt;My Website&lt;/h1&gt;\n&lt;/header&gt;">
+            <span class="font-preview-text">Page Header</span>
+            <span class="font-code">&lt;header&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;nav&gt;\n  &lt;a href=&quot;#home&quot;&gt;Home&lt;/a&gt;\n  &lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;\n&lt;/nav&gt;">
+            <span class="font-preview-text">Navigation</span>
+            <span class="font-code">&lt;nav&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;main&gt;\n  &lt;h2&gt;Main Content&lt;/h2&gt;\n  &lt;p&gt;Your main page content goes here.&lt;/p&gt;\n&lt;/main&gt;">
+            <span class="font-preview-text">Main Content</span>
+            <span class="font-code">&lt;main&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;section&gt;\n  &lt;h2&gt;My Section&lt;/h2&gt;\n  &lt;p&gt;Related content goes here.&lt;/p&gt;\n&lt;/section&gt;">
+            <span class="font-preview-text">Page Section</span>
+            <span class="font-code">&lt;section&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;article&gt;\n  &lt;h2&gt;Article Title&lt;/h2&gt;\n  &lt;p&gt;Your article content goes here.&lt;/p&gt;\n&lt;/article&gt;">
+            <span class="font-preview-text">Article</span>
+            <span class="font-code">&lt;article&gt;</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="&lt;footer&gt;\n  &lt;p&gt;© 2026 My Website&lt;/p&gt;\n&lt;/footer&gt;">
+            <span class="font-preview-text">Page Footer</span>
+            <span class="font-code">&lt;footer&gt;</span>
+        </div>
+
+    </div>
+
+     <div id="cssSnippetContent" class="font-list snippet-tab-content" >
+
+        <div class="font-item snippet-item" data-snippet="color: #574840;">
+            <span class="font-preview-text">Text Color</span>
+            <span class="font-code">color:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="background-color: #FFF0F3;">
+            <span class="font-preview-text">Background Color</span>
+            <span class="font-code">background-color:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="font-family: 'Nunito', sans-serif;">
+            <span class="font-preview-text">Font Family</span>
+            <span class="font-code">font-family:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="font-size: 18px;">
+            <span class="font-preview-text">Font Size</span>
+            <span class="font-code">font-size:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="font-weight: bold;">
+            <span class="font-preview-text">Font Weight</span>
+            <span class="font-code">font-weight:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="text-align: center;">
+            <span class="font-preview-text">Text Alignment</span>
+            <span class="font-code">text-align:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="text-decoration: underline;">
+            <span class="font-preview-text">Text Decoration</span>
+            <span class="font-code">text-decoration:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="width: 200px;">
+            <span class="font-preview-text">Width</span>
+            <span class="font-code">width:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="height: 100px;">
+            <span class="font-preview-text">Height</span>
+            <span class="font-code">height:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="margin: 10px;">
+            <span class="font-preview-text">Outer Spacing</span>
+            <span class="font-code">margin:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="padding: 15px;">
+            <span class="font-preview-text">Inner Spacing</span>
+            <span class="font-code">padding:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="border: 2px solid #FF8FAB;">
+            <span class="font-preview-text">Border</span>
+            <span class="font-code">border:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="border-radius: 12px;">
+            <span class="font-preview-text">Rounded Corners</span>
+            <span class="font-code">border-radius:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="display: flex;">
+            <span class="font-preview-text">Display / Flexbox</span>
+            <span class="font-code">display:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="display: grid;">
+            <span class="font-preview-text">Grid Layout</span>
+            <span class="font-code">display: grid;</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="opacity: 0.7;">
+            <span class="font-preview-text">Transparency</span>
+            <span class="font-code">opacity:</span>
+        </div>
+
+        <div class="font-item snippet-item" data-snippet="cursor: pointer;">
+            <span class="font-preview-text">Mouse Cursor</span>
+            <span class="font-code">cursor:</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+            <span class="font-preview-text">Box Shadow</span>
+            <span class="font-code">box-shadow:</span>
+        </div>
+
+    </div>
+
+
+    <div id="recipeSnippetContent" class="font-list snippet-tab-content" >
+
+        <div class="font-item snippet-item"
+            data-snippet="display: flex;\njustify-content: center;\nalign-items: center;">
+            <span class="font-preview-text">Center an Element</span>
+            <span class="font-code">Flexbox</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="text-align: center;">
+            <span class="font-preview-text">Center Text</span>
+            <span class="font-code">text-align</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="margin: 0 auto;">
+            <span class="font-preview-text">Center a Block</span>
+            <span class="font-code">margin: auto</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="display: flex;\njustify-content: center;\nalign-items: center;\nmin-height: 100vh;">
+            <span class="font-preview-text">Center on the Page</span>
+            <span class="font-code">Full Screen</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="display: flex;">
+            <span class="font-preview-text">Put Items Side by Side</span>
+            <span class="font-code">Flexbox</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="display: flex;\ngap: 20px;">
+            <span class="font-preview-text">Add Space Between Items</span>
+            <span class="font-code">gap</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="display: grid;\ngrid-template-columns: 1fr 1fr;\ngap: 20px;">
+            <span class="font-preview-text">Create 2 Columns</span>
+            <span class="font-code">Grid</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="display: grid;\ngrid-template-columns: repeat(3, 1fr);\ngap: 20px;">
+            <span class="font-preview-text">Create 3 Columns</span>
+            <span class="font-code">Grid</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="display: grid;\nplace-items: center;">
+            <span class="font-preview-text">Center with Grid</span>
+            <span class="font-code">Grid</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="width: 100%;">
+            <span class="font-preview-text">Fill Available Width</span>
+            <span class="font-code">width: 100%</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="width: 100vw;\nheight: 100vh;">
+            <span class="font-preview-text">Fill the Entire Screen</span>
+            <span class="font-code">100vw / 100vh</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="border-radius: 50%;">
+            <span class="font-preview-text">Make a Circle</span>
+            <span class="font-code">50%</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="display: none;">
+            <span class="font-preview-text">Hide an Element</span>
+            <span class="font-code">display: none</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+            <span class="font-preview-text">Add a Shadow</span>
+            <span class="font-code">box-shadow</span>
+        </div>
+
+        <div class="font-item snippet-item"
+            data-snippet="border-radius: 12px;">
+            <span class="font-preview-text">Round the Corners</span>
+            <span class="font-code">border-radius</span>
+        </div>
+
+    </div>
+
+</div>
                     <!-- FONT LIBRARY DRAWER -->
                     <div id="fontDrawer" class="popup-drawer" style="display: none;">
                         <div class="drawer-header">
