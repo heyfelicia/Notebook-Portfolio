@@ -60,7 +60,7 @@ body.theme-mocha .drawer-tab-btn.active {
 body.theme-mocha .snippet-search-input { background-color: #fcfbfa;}
 body.theme-mocha .snippet-search-input   {border: 1.3px dashed #b8866b;}
 body.theme-mocha .snippet-search-input  {color: #705f56;}
-
+body.theme-mocha  .snippet-search-input:focus {background-color: white;}
 body.theme-mocha .snippet-search-input::placeholder  {color: #bdb4af;}
 
 
@@ -743,7 +743,7 @@ body.theme-periwinkle textarea#codeBox::-webkit-scrollbar-thumb:hover {
 .snippet-search-input {
     width: 75%;
     width: 566px;
-    padding: 6px 10px;
+    padding: 6.5px 10px;
     border-radius: 8px;
     font-size: 13px;
     outline: none;
@@ -752,7 +752,7 @@ body.theme-periwinkle textarea#codeBox::-webkit-scrollbar-thumb:hover {
     font-family: 'Nunito', sans-serif;
 
     background-color: var(--drawer-bg, #fcf8fd);
-    border: 1.3px dashed var(--border-color, #ffc3f7);
+    border: 1.3px dashed var(--border-color, #ffbaf6);
     color: var(--text-color, #5a4b5d);
 }
 

@@ -491,3 +491,29 @@ document.getElementById('snippetSearch').addEventListener('input', function(e) {
         }
     });
 });
+
+
+
+document.addEventListener('keydown', function(e) {
+    // 1. ESCAPE KEY: Close active popup drawers or blur search
+    if (e.key === 'Escape') {
+        // If a drawer function or closer exists, call it (e.g., closeDrawers())
+        if (typeof closeDrawers === 'function') {
+            closeDrawers();
+        }
+        // Unfocus the search input if it's currently focused
+        const searchInput = document.getElementById('snippetSearch');
+        if (searchInput && document.activeElement === searchInput) {
+            searchInput.blur();
+        }
+    }
+
+    // 2. CTRL + B (or Cmd + B): Trigger the theme toggle button
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
+        e.preventDefault(); // Prevent default browser bookmark behavior
+        const themeBtn = document.getElementById('themeToggleBtn');
+        if (themeBtn) {
+            themeBtn.click();
+        }
+    }
+});
