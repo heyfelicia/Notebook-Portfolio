@@ -11,14 +11,14 @@ const colorBtn = document.getElementById('colorBtn');
 const colorDrawer = document.getElementById('colorDrawer');
 const colorPreviewCircle = document.getElementById('colorPreviewCircle');
 
+const snippetBtn = document.getElementById('snippetBtn');
+const snippetDrawer = document.getElementById('snippetDrawer');
+
 const defaultCode = `<div style="text-align: center; padding: 40px; font-family: 'Nunito', sans-serif;">
     <h2 style="color: #574840; margin-bottom: 10px; font-weight:400;">Welcome</h2>
     <p style="color:  #574840; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
         Thank you so much for joining today.<br>
         Start typing your code on the right to see the magic happen right here. </p>
-
-       
-   
 </div>`;
 
 codeBox.value = defaultCode;
@@ -51,6 +51,29 @@ function closeDrawers() {
     assetDrawer.style.display = 'none';
     fontDrawer.style.display = 'none';
     colorDrawer.style.display = 'none';
+    if (snippetDrawer) snippetDrawer.style.display = 'none';
+}
+
+// =========================
+// TAB SWITCHING FOR SNIPPETS
+// =========================
+function switchSnippetTab(tabName) {
+    const htmlTabBtn = document.getElementById('htmlTabBtn');
+    const cssTabBtn = document.getElementById('cssTabBtn');
+    const htmlContent = document.getElementById('htmlSnippetContent');
+    const cssContent = document.getElementById('cssSnippetContent');
+
+    if (tabName === 'html') {
+        if (htmlTabBtn) htmlTabBtn.classList.add('active');
+        if (cssTabBtn) cssTabBtn.classList.remove('active');
+        if (htmlContent) htmlContent.style.display = 'flex';
+        if (cssContent) cssContent.style.display = 'none';
+    } else {
+        if (cssTabBtn) cssTabBtn.classList.add('active');
+        if (htmlTabBtn) htmlTabBtn.classList.remove('active');
+        if (cssContent) cssContent.style.display = 'flex';
+        if (htmlContent) htmlContent.style.display = 'none';
+    }
 }
 
 assetBtn.addEventListener('click', () => {
@@ -71,12 +94,44 @@ colorBtn.addEventListener('click', () => {
     colorDrawer.style.display = isOpen ? 'none' : 'block';
 });
 
+if (snippetBtn && snippetDrawer) {
+    snippetBtn.addEventListener('click', () => {
+        const isOpen = snippetDrawer.style.display === 'block';
+        closeDrawers();
+        snippetDrawer.style.display = isOpen ? 'none' : 'block';
+    });
+}
+
+// Insert Snippets into CodeBox
+document.querySelectorAll('.snippet-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const snippetCode = item.getAttribute('data-snippet').replace(/\\n/g, '\n');
+        
+        // Insert at cursor position or append
+        const startPos = codeBox.selectionStart;
+        const endPos = codeBox.selectionEnd;
+        const textVal = codeBox.value;
+        
+        codeBox.value = textVal.substring(0, startPos) + snippetCode + textVal.substring(endPos, textVal.length);
+        codeBox.selectionStart = codeBox.selectionEnd = startPos + snippetCode.length;
+        
+        codeBox.focus();
+        updatePreview();
+        updateLineNumbers();
+
+        // Visual feedback
+        const codeSpan = item.querySelector('.font-code');
+        const original = codeSpan.textContent;
+        codeSpan.textContent = 'Inserted! ✨';
+        setTimeout(() => { codeSpan.textContent = original; }, 1500);
+    });
+});
+
 document.querySelectorAll('.color-swatch').forEach(swatch => {
     swatch.addEventListener('click', () => {
         const selectedColor = swatch.getAttribute('data-color');
         navigator.clipboard.writeText(selectedColor);
         
-        // Update the toolbar button text and circle to show the hex code and copied state
         colorBtn.innerHTML = `<span id="colorPreviewCircle" class="color-preview-circle" style="background-color: ${selectedColor};"></span> Copied! ✨`;
         
         setTimeout(() => {
@@ -97,7 +152,7 @@ document.querySelectorAll('.asset-item').forEach(item => {
     });
 });
 
-document.querySelectorAll('.font-item').forEach(item => {
+document.querySelectorAll('.font-item:not(.snippet-item)').forEach(item => {
     item.addEventListener('click', () => {
         navigator.clipboard.writeText(item.getAttribute('data-code'));
         const codeSpan = item.querySelector('.font-code');
@@ -142,10 +197,8 @@ document.addEventListener('click', (event) => {
 });
 
 const themes = ['theme-mocha', 'theme-lavender', 'theme-periwinkle'];
-
 const themeToggleBtn = document.getElementById('themeToggleBtn');
 
-// Load saved theme or default to mocha
 const currentTheme = localStorage.getItem('portfolio_theme') || 'theme-mocha';
 document.body.className = currentTheme;
 
@@ -155,10 +208,7 @@ if (themeToggleBtn) {
         let nextIndex = (themes.indexOf(activeTheme) + 1) % themes.length;
         let nextTheme = themes[nextIndex];
 
-        // Swap classes
         document.body.className = nextTheme;
-        
-        // Save persistence
         localStorage.setItem('portfolio_theme', nextTheme);
     });
 }

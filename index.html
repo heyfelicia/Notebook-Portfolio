@@ -50,32 +50,143 @@
                     <div class="editor-header-row">
                         <div class="page-header" style="margin-bottom: 0;"> &lt;/&gt; Code Editor</div>
                         <div class="tools-right" style="display: flex; gap: 6px; align-items: center;">
-                            
+
                             <!-- THEME TOGGLE BUTTON -->
-                           <button id="themeToggleBtn" class="tool-btn theme-toggle-btn" title="Switch Theme">
-    <svg id="themeHeartIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="transition: fill 0.2s ease;">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-    </svg>
-</button>
+                            <button id="themeToggleBtn" class="tool-btn theme-toggle-btn" title="Switch Theme">
+                                <svg id="themeHeartIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" style="transition: fill 0.2s ease;">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                            </button>
+
+                            <!-- Snippets Icon Button -->
+                            <button id="snippetBtn" class="tool-btn icon-tool-btn snippet-tool-btn"
+                                title="Code Snippets">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </button>
 
                             <!-- Fonts Icon Button -->
                             <button id="fontBtn" class="tool-btn icon-tool-btn font-tool-btn" title="Fonts">Aa</button>
-                            
+
                             <!-- Stickers Icon Button -->
-                            <button id="assetBtn" class="tool-btn icon-tool-btn asset-tool-btn" title="Stickers & Assets">
+                            <button id="assetBtn" class="tool-btn icon-tool-btn asset-tool-btn"
+                                title="Stickers & Assets">
                                 <img src="images/star.svg" alt="Stickers">
                             </button>
 
                             <!-- Custom Color Picker Trigger -->
                             <div class="color-picker-tool">
-                                <button id="colorBtn" class="tool-btn color-trigger-btn" title="Colors" style="display: flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 30px; width: auto;">
-    <span id="colorPreviewCircle" class="color-preview-circle" style="background-color: #98E3DE;"></span> 
-    <span id="colorCodeText">#98E3DE</span>
-</button>
+                                <button id="colorBtn" class="tool-btn color-trigger-btn" title="Colors"
+                                    style="display: flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 30px; width: auto;">
+                                    <span id="colorPreviewCircle" class="color-preview-circle"
+                                        style="background-color: #98E3DE;"></span>
+                                    <span id="colorCodeText">#98E3DE</span>
+                                </button>
                             </div>
                         </div>
                     </div>
 
+                    <!-- SNIPPET LIBRARY DRAWER -->
+                    <!-- SNIPPET LIBRARY DRAWER -->
+                    <!-- SNIPPET LIBRARY DRAWER -->
+                    <div id="snippetDrawer" class="popup-drawer">
+
+                        <!-- HEADER -->
+                        <div class="drawer-header">
+                            <span class="drawer-title">HTML & CSS Starters</span>
+                            <button class="close-drawer" onclick="closeDrawers()">✕</button>
+                        </div>
+
+                        <!-- EASY-ACCESS TABS -->
+                        <div class="drawer-tabs">
+                            <button id="htmlTabBtn" class="drawer-tab-btn active"
+                                onclick="switchSnippetTab('html')">HTML Elements</button>
+                            <button id="cssTabBtn" class="drawer-tab-btn" onclick="switchSnippetTab('css')">CSS
+                                Properties</button>
+                        </div>
+
+                        <!-- HTML CONTENT ROW -->
+                        <div id="htmlSnippetContent" class="font-list snippet-tab-content">
+                            <div class="font-item snippet-item" data-snippet="&lt;h1&gt;Main Heading&lt;/h1&gt;">
+                                <span class="font-preview-text">Heading Tag</span>
+                                <span class="font-code">&lt;h1&gt;</span>
+                            </div>
+                            <div class="font-item snippet-item"
+                                data-snippet="&lt;p&gt;Write your paragraph text here...&lt;/p&gt;">
+                                <span class="font-preview-text">Paragraph Tag</span>
+                                <span class="font-code">&lt;p&gt;</span>
+                            </div>
+                            <div class="font-item snippet-item"
+                                data-snippet="&lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot;&gt;Click me!&lt;/a&gt;">
+                                <span class="font-preview-text">Hyperlink</span>
+                                <span class="font-code">&lt;a href&gt;</span>
+                            </div>
+                            <div class="font-item snippet-item"
+                                data-snippet="&lt;img src=&quot;images/duck.svg&quot; alt=&quot;Cute description&quot;&gt;">
+                                <span class="font-preview-text">Image Tag</span>
+                                <span class="font-code">&lt;img src&gt;</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="&lt;button&gt;Click Me! ✨&lt;/button&gt;">
+                                <span class="font-preview-text">Button Element</span>
+                                <span class="font-code">&lt;button&gt;</span>
+                            </div>
+                            <div class="font-item snippet-item"
+                                data-snippet="&lt;ul&gt;\n  &lt;li&gt;First item&lt;/li&gt;\n  &lt;li&gt;Second item&lt;/li&gt;\n&lt;/ul&gt;">
+                                <span class="font-preview-text">Unordered List</span>
+                                <span class="font-code">&lt;ul&gt;&lt;li&gt;</span>
+                            </div>
+                            <div class="font-item snippet-item"
+                                data-snippet="&lt;div&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/div&gt;">
+                                <span class="font-preview-text">Container Box</span>
+                                <span class="font-code">&lt;div&gt;</span>
+                            </div>
+                        </div>
+
+                        <!-- CSS CONTENT ROW -->
+                        <div id="cssSnippetContent" class="font-list snippet-tab-content" style="display: none;">
+                            <div class="font-item snippet-item" data-snippet="color: #574840;">
+                                <span class="font-preview-text">Change Font Color</span>
+                                <span class="font-code">color:</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="font-size: 18px;">
+                                <span class="font-preview-text">Change Font Size</span>
+                                <span class="font-code">font-size:</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="text-align: center;">
+                                <span class="font-preview-text">Align Text</span>
+                                <span class="font-code">text-align:</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="background-color: #FFF0F3;">
+                                <span class="font-preview-text">Background Color</span>
+                                <span class="font-code">background-color:</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="margin: 10px;">
+                                <span class="font-preview-text">Outer Spacing (Margin)</span>
+                                <span class="font-code">margin:</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="padding: 15px;">
+                                <span class="font-preview-text">Inner Spacing (Padding)</span>
+                                <span class="font-code">padding:</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="border: 2px solid #FF8FAB;">
+                                <span class="font-preview-text">Border Outline</span>
+                                <span class="font-code">border:</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="border-radius: 12px;">
+                                <span class="font-preview-text">Rounded Corners</span>
+                                <span class="font-code">border-radius:</span>
+                            </div>
+                            <div class="font-item snippet-item" data-snippet="display: flex;">
+                                <span class="font-preview-text">Flexbox Layout</span>
+                                <span class="font-code">display: flex;</span>
+                            </div>
+                        </div>
+                    </div>
                     <!-- FONT LIBRARY DRAWER -->
                     <div id="fontDrawer" class="popup-drawer" style="display: none;">
                         <div class="drawer-header">
@@ -84,39 +195,48 @@
                         </div>
                         <div class="font-list">
                             <div class="font-item" data-code="font-family: 'Nunito', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'Nunito', sans-serif;">Nunito (Soft & Cozy)</span>
+                                <span class="font-preview-text" style="font-family: 'Nunito', sans-serif;">Nunito (Soft
+                                    & Cozy)</span>
                                 <span class="font-code">font-family: 'Nunito'</span>
                             </div>
                             <div class="font-item" data-code="font-family: 'Quicksand', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'Quicksand', sans-serif;">Quicksand (Clean & Round)</span>
+                                <span class="font-preview-text" style="font-family: 'Quicksand', sans-serif;">Quicksand
+                                    (Clean & Round)</span>
                                 <span class="font-code">font-family: 'Quicksand'</span>
                             </div>
                             <div class="font-item" data-code="font-family: 'Fredoka', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'Fredoka', sans-serif;">Fredoka (Bubbly & Cute)</span>
+                                <span class="font-preview-text" style="font-family: 'Fredoka', sans-serif;">Fredoka
+                                    (Bubbly & Cute)</span>
                                 <span class="font-code">font-family: 'Fredoka'</span>
                             </div>
                             <div class="font-item" data-code="font-family: 'Baloo 2', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'Baloo 2', sans-serif;">Baloo 2 (Chunky & Happy)</span>
+                                <span class="font-preview-text" style="font-family: 'Baloo 2', sans-serif;">Baloo 2
+                                    (Chunky & Happy)</span>
                                 <span class="font-code">font-family: 'Baloo 2'</span>
                             </div>
                             <div class="font-item" data-code="font-family: 'DynaPuff', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'DynaPuff', sans-serif;">DynaPuff (Puffy & Playful)</span>
+                                <span class="font-preview-text" style="font-family: 'DynaPuff', sans-serif;">DynaPuff
+                                    (Puffy & Playful)</span>
                                 <span class="font-code">font-family: 'DynaPuff'</span>
                             </div>
                             <div class="font-item" data-code="font-family: 'Coiny', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'Coiny', sans-serif;">Coiny (Bold & Bouncy)</span>
+                                <span class="font-preview-text" style="font-family: 'Coiny', sans-serif;">Coiny (Bold &
+                                    Bouncy)</span>
                                 <span class="font-code">font-family: 'Coiny'</span>
                             </div>
                             <div class="font-item" data-code="font-family: 'M PLUS Rounded 1c', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'M PLUS Rounded 1c', sans-serif;">M PLUS Rounded (Sweet & Kawaii)</span>
+                                <span class="font-preview-text" style="font-family: 'M PLUS Rounded 1c', sans-serif;">M
+                                    PLUS Rounded (Sweet & Kawaii)</span>
                                 <span class="font-code">font-family: 'M PLUS Rounded 1c'</span>
                             </div>
                             <div class="font-item" data-code="font-family: 'Varela Round', sans-serif;">
-                                <span class="font-preview-text" style="font-family: 'Varela Round', sans-serif;">Varela Round (Simple & Sweet)</span>
+                                <span class="font-preview-text" style="font-family: 'Varela Round', sans-serif;">Varela
+                                    Round (Simple & Sweet)</span>
                                 <span class="font-code">font-family: 'Varela Round'</span>
                             </div>
                             <div class="font-item" data-code="font-family: monospace;">
-                                <span class="font-preview-text" style="font-family: monospace;">Monospace (Coding Vibe)</span>
+                                <span class="font-preview-text" style="font-family: monospace;">Monospace (Coding
+                                    Vibe)</span>
                                 <span class="font-code">font-family: monospace</span>
                             </div>
                         </div>
@@ -163,71 +283,144 @@
                             <span>Pick a Palette Color (Click to Copy CSS!)</span>
                             <button class="close-drawer" onclick="closeDrawers()">✕</button>
                         </div>
-                        <div class="swatch-grid" style="grid-template-columns: repeat(6, 1fr); padding-right: 4px;">
-    <!-- Neutrals & Whites -->
-    <div class="color-swatch" style="background-color: #FFFFFF; border: 0.5px solid #E5D8E0;" data-color="#FFFFFF" title="#FFFFFF"></div>
-    <div class="color-swatch" style="background-color: #F8F9FA;" data-color="#F8F9FA" title="#F8F9FA"></div>
-    <div class="color-swatch" style="background-color: #E9ECEF;" data-color="#E9ECEF" title="#E9ECEF"></div>
-    <div class="color-swatch" style="background-color: #CED4DA;" data-color="#CED4DA" title="#CED4DA"></div>
-    <div class="color-swatch" style="background-color: #6C757D;" data-color="#6C757D" title="#6C757D"></div>
-    <div class="color-swatch" style="background-color: #212529;" data-color="#212529" title="#212529"></div>
+                        <div class="swatch-grid"
+                            style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; padding: 4px;">
+                            <!-- Row 1: Original Pastels (Part 1) -->
+                            <div class="color-swatch"
+                                style="background-color: #FFB3C6; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFB3C6" title="#FFB3C6"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FFD1DC; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFD1DC" title="#FFD1DC"></div>
+                            <div class="color-swatch"
+                                style="background-color: #A0E7E5; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#A0E7E5" title="#A0E7E5"></div>
+                            <div class="color-swatch"
+                                style="background-color: #8AE9C1; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#8AE9C1" title="#8AE9C1"></div>
+                            <div class="color-swatch"
+                                style="background-color: #D3F3F1; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#D3F3F1" title="#D3F3F1"></div>
 
-    <!-- Soft Pinks & Blushes -->
-    <div class="color-swatch" style="background-color: #FFF0F3;" data-color="#FFF0F3" title="#FFF0F3"></div>
-    <div class="color-swatch" style="background-color: #FFCCD5;" data-color="#FFCCD5" title="#FFCCD5"></div>
-    <div class="color-swatch" style="background-color: #FFB3C6;" data-color="#FFB3C6" title="#FFB3C6"></div>
-    <div class="color-swatch" style="background-color: #FF8FAB;" data-color="#FF8FAB" title="#FF8FAB"></div>
-    <div class="color-swatch" style="background-color: #FB6F92;" data-color="#FB6F92" title="#FB6F92"></div>
-    <div class="color-swatch" style="background-color: #C9184A;" data-color="#C9184A" title="#C9184A"></div>
+                            <!-- Row 2: Original Pastels (Part 2) -->
+                            <div class="color-swatch"
+                                style="background-color: #FF9B85; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FF9B85" title="#FF9B85"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FFB4A2; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFB4A2" title="#FFB4A2"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FFD8D6; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFD8D6" title="#FFD8D6"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FFF1EE; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFF1EE" title="#FFF1EE"></div>
+                            <div class="color-swatch"
+                                style="background-color: #B5D2CE; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#B5D2CE" title="#B5D2CE"></div>
 
-    <!-- Peaches, Corals & Warm Reds -->
-    <div class="color-swatch" style="background-color: #FFF3E6;" data-color="#FFF3E6" title="#FFF3E6"></div>
-    <div class="color-swatch" style="background-color: #FFD166;" data-color="#FFD166" title="#FFD166"></div>
-    <div class="color-swatch" style="background-color: #F4A261;" data-color="#F4A261" title="#F4A261"></div>
-    <div class="color-swatch" style="background-color: #E76F51;" data-color="#E76F51" title="#E76F51"></div>
-    <div class="color-swatch" style="background-color: #D90429;" data-color="#D90429" title="#D90429"></div>
-    <div class="color-swatch" style="background-color: #8D0801;" data-color="#8D0801" title="#8D0801"></div>
+                            <!-- Row 3: Original Pastels (Part 3) -->
+                            <div class="color-swatch"
+                                style="background-color: #C1F0ED; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#C1F0ED" title="#C1F0ED"></div>
+                            <div class="color-swatch"
+                                style="background-color: #D0E1FD; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#D0E1FD" title="#D0E1FD"></div>
+                            <div class="color-swatch"
+                                style="background-color: #A0C4FF; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#A0C4FF" title="#A0C4FF"></div>
+                            <div class="color-swatch"
+                                style="background-color: #79ADD8; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#79ADD8" title="#79ADD8"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FED7C3; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FED7C3" title="#FED7C3"></div>
 
-    <!-- Soft Yellows & Warm Golds -->
-    <div class="color-swatch" style="background-color: #FCF6BD;" data-color="#FCF6BD" title="#FCF6BD"></div>
-    <div class="color-swatch" style="background-color: #FFD97D;" data-color="#FFD97D" title="#FFD97D"></div>
-    <div class="color-swatch" style="background-color: #FFB703;" data-color="#FFB703" title="#FFB703"></div>
-    <div class="color-swatch" style="background-color: #FB8500;" data-color="#FB8500" title="#FB8500"></div>
-    <div class="color-swatch" style="background-color: #B5838D;" data-color="#B5838D" title="#B5838D"></div>
-    <div class="color-swatch" style="background-color: #6D597A;" data-color="#6D597A" title="#6D597A"></div>
+                            <!-- Row 4: Original Pastels (Part 4) -->
+                            <div class="color-swatch"
+                                style="background-color: #FFC0B5; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFC0B5" title="#FFC0B5"></div>
+                            <div class="color-swatch"
+                                style="background-color: #D2F2E2; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#D2F2E2" title="#D2F2E2"></div>
+                            <div class="color-swatch"
+                                style="background-color: #A3E4C9; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#A3E4C9" title="#A3E4C9"></div>
+                            <div class="color-swatch"
+                                style="background-color: #93CDAE; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#93CDAE" title="#93CDAE"></div>
+                            <div class="color-swatch"
+                                style="background-color: #70B891; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#70B891" title="#70B891"></div>
 
-    <!-- Mint, Sage & Forest Greens -->
-    <div class="color-swatch" style="background-color: #E2FBD9;" data-color="#E2FBD9" title="#E2FBD9"></div>
-    <div class="color-swatch" style="background-color: #C0F6B5;" data-color="#C0F6B5" title="#C0F6B5"></div>
-    <div class="color-swatch" style="background-color: #92ED9B;" data-color="#92ED9B" title="#92ED9B"></div>
-    <div class="color-swatch" style="background-color: #52B788;" data-color="#52B788" title="#52B788"></div>
-    <div class="color-swatch" style="background-color: #2D6A4F;" data-color="#2D6A4F" title="#2D6A4F"></div>
-    <div class="color-swatch" style="background-color: #1B4332;" data-color="#1B4332" title="#1B4332"></div>
+                            <!-- Row 5: Original Pastels (Part 5) -->
+                            <div class="color-swatch"
+                                style="background-color: #85E3FF; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#85E3FF" title="#85E3FF"></div>
+                            <div class="color-swatch"
+                                style="background-color: #BFFCC6; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#BFFCC6" title="#BFFCC6"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FFB366; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFB366" title="#FFB366"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FFC099; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFC099" title="#FFC099"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FFCCB3; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFCCB3" title="#FFCCB3"></div>
 
-    <!-- Sky Blues, Teals & Deep Navies -->
-    <div class="color-swatch" style="background-color: #E2F6FC;" data-color="#E2F6FC" title="#E2F6FC"></div>
-    <div class="color-swatch" style="background-color: #8AD5F8;" data-color="#8AD5F8" title="#8AD5F8"></div>
-    <div class="color-swatch" style="background-color: #48CAE4;" data-color="#48CAE4" title="#48CAE4"></div>
-    <div class="color-swatch" style="background-color: #0096C7;" data-color="#0096C7" title="#0096C7"></div>
-    <div class="color-swatch" style="background-color: #03045E;" data-color="#03045E" title="#03045E"></div>
-    <div class="color-swatch" style="background-color: #1D3557;" data-color="#1D3557" title="#1D3557"></div>
+                            <!-- Row 6: Original Pastels (Part 6) -->
+                            <div class="color-swatch"
+                                style="background-color: #EFA8FF; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#EFA8FF" title="#EFA8FF"></div>
+                            <div class="color-swatch"
+                                style="background-color: #E8D7F1; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#E8D7F1" title="#E8D7F1"></div>
+                            <div class="color-swatch"
+                                style="background-color: #FFD6C9; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#FFD6C9" title="#FFD6C9"></div>
+                            <div class="color-swatch"
+                                style="background-color: #E8A89C; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#E8A89C" title="#E8A89C"></div>
+                            <div class="color-swatch"
+                                style="background-color: #E2ECF5; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#E2ECF5" title="#E2ECF5"></div>
 
-    <!-- Lavenders, Purples & Plums -->
-    <div class="color-swatch" style="background-color: #F4ECF7;" data-color="#F4ECF7" title="#F4ECF7"></div>
-    <div class="color-swatch" style="background-color: #E8D9F3;" data-color="#E8D9F3" title="#E8D9F3"></div>
-    <div class="color-swatch" style="background-color: #C7A2E3;" data-color="#C7A2E3" title="#C7A2E3"></div>
-    <div class="color-swatch" style="background-color: #9B5DE5;" data-color="#9B5DE5" title="#9B5DE5"></div>
-    <div class="color-swatch" style="background-color: #7209B7;" data-color="#7209B7" title="#7209B7"></div>
-    <div class="color-swatch" style="background-color: #3C096C;" data-color="#3C096C" title="#3C096C"></div>
+                            <!-- Row 7: Additional Greens & Soft Purples (From Second Image) -->
+                            <div class="color-swatch"
+                                style="background-color: #9ED88C; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#9ED88C" title="#9ED88C"></div>
+                            <div class="color-swatch"
+                                style="background-color: #6CC589; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#6CC589" title="#6CC589"></div>
+                            <div class="color-swatch"
+                                style="background-color: #4CB080; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#4CB080" title="#4CB080"></div>
+                            <div class="color-swatch"
+                                style="background-color: #EBD6FF; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#EBD6FF" title="#EBD6FF"></div>
+                            <div class="color-swatch"
+                                style="background-color: #B5B2FF; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#B5B2FF" title="#B5B2FF"></div>
 
-    <!-- Earthy Browns & Warm Darks -->
-    <div class="color-swatch" style="background-color: #F3E9DC;" data-color="#F3E9DC" title="#F3E9DC"></div>
-    <div class="color-swatch" style="background-color: #E3D5CA;" data-color="#E3D5CA" title="#E3D5CA"></div>
-    <div class="color-swatch" style="background-color: #D5BDAF;" data-color="#D5BDAF" title="#D5BDAF"></div>
-    <div class="color-swatch" style="background-color: #A3704C;" data-color="#A3704C" title="#A3704C"></div>
-    <div class="color-swatch" style="background-color: #574840;" data-color="#574840" title="#574840"></div>
-    <div class="color-swatch" style="background-color: #382C25;" data-color="#382C25" title="#382C25"></div>
-</div>
+                            <!-- Row 8: Rich Purples, Neutrals & Soft Dark Blues/Browns -->
+                            <div class="color-swatch"
+                                style="background-color: #8C52E5; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#8C52E5" title="#8C52E5"></div>
+                            <div class="color-swatch"
+                                style="background-color: #E5D8CC; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#E5D8CC" title="#E5D8CC"></div>
+                            <div class="color-swatch"
+                                style="background-color: #4A607A; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#4A607A" title="#4A607A"></div>
+                            <div class="color-swatch"
+                                style="background-color: #3B4D61; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#3B4D61" title="#3B4D61"></div>
+                            <div class="color-swatch"
+                                style="background-color: #6B4E3D; border-radius: 12px; height: 50px; cursor: pointer; transition: transform 0.2s;"
+                                data-color="#6B4E3D" title="#6B4E3D"></div>
+                        </div>
                     </div>
 
                     <div class="editor-container" style="flex: 1; position: relative;">
