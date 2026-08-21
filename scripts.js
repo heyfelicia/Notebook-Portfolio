@@ -471,5 +471,4 @@ if (themeToggleBtn) {
         );
 
     });
-
 }
