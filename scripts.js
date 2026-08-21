@@ -459,4 +459,35 @@ if (themeToggleBtn) {
         );
 
     });
-}
+};
+
+document.getElementById('snippetSearch').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase().trim();
+    
+    // Grab all four content containers
+    const htmlContent = document.getElementById('htmlSnippetContent');
+    const cssContent = document.getElementById('cssSnippetContent');
+    const recipeContent = document.getElementById('recipeSnippetContent');
+    const componentContent = document.getElementById('componentSnippetContent');
+    
+    // Determine which tab content is currently active/visible
+    const activeList = (htmlContent && htmlContent.style.display !== 'none') ? htmlContent : 
+                       (cssContent && cssContent.style.display !== 'none') ? cssContent : 
+                       (recipeContent && recipeContent.style.display !== 'none') ? recipeContent : 
+                       (componentContent && componentContent.style.display !== 'none') ? componentContent : null;
+
+    if (!activeList) return;
+
+    const snippetItems = activeList.querySelectorAll('.snippet-item');
+
+    snippetItems.forEach(item => {
+        const previewText = item.querySelector('.font-preview-text') ? item.querySelector('.font-preview-text').textContent.toLowerCase() : '';
+        const codeText = item.querySelector('.font-code') ? item.querySelector('.font-code').textContent.toLowerCase() : '';
+        
+        if (previewText.includes(searchTerm) || codeText.includes(searchTerm)) {
+            item.style.display = ''; 
+        } else {
+            item.style.display = 'none'; 
+        }
+    });
+});

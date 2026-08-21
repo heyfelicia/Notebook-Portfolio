@@ -57,6 +57,13 @@ body.theme-mocha .drawer-tab-btn.active {
     color: #b8866b;
 }
 
+body.theme-mocha .snippet-search-input { background-color: #fcfbfa;}
+body.theme-mocha .snippet-search-input   {border: 1.3px dashed #b8866b;}
+body.theme-mocha .snippet-search-input  {color: #705f56;}
+
+body.theme-mocha .snippet-search-input::placeholder  {color: #bdb4af;}
+
+
 body.theme-mocha .tool-btn {
     background-color: #f7f0ec;
     border: 1.2px solid #b8866b;
@@ -390,6 +397,7 @@ textarea#codeBox {
     transition: all 0.2s ease;
     width:100%;
     height:100%;
+    gap:10px;
     
 }
 
@@ -725,3 +733,34 @@ body.theme-periwinkle textarea#codeBox::-webkit-scrollbar-thumb:hover {
     background: #5875ab;
 }
 
+
+
+
+.snippet-search-container {
+    margin-bottom: 11px;
+}
+
+.snippet-search-input {
+    width: 75%;
+    width: 566px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+
+    background-color: var(--drawer-bg, #fcf8fd);
+    border: 1.3px dashed var(--border-color, #ffc3f7);
+    color: var(--text-color, #5a4b5d);
+}
+
+.snippet-search-input:focus {
+    border-color: var(--accent-color, #ffe0f6);
+    background-color: #ffffff;
+}
+
+.snippet-search-input::placeholder {
+    color: var(--placeholder-color, #bfaabf);
+}
